@@ -7,21 +7,21 @@ using UnityEngine.Events;
 public class ResourceScript : MonoBehaviour
 {
     /// <summary>
-    /// ‘Œ¹‚Ìd‚³
+    /// è³‡æºã®é‡ã•
     /// </summary>
     [SerializeField]
     private float _mass;
     public float Mass => _mass;
 
     /// <summary>
-    /// ‘Œ¹‚ÌƒXƒRƒA
+    /// è³‡æºã®ã‚¹ã‚³ã‚¢
     /// </summary>
     [SerializeField]
     private int _score;
     public int Score => _score;
 
     private Rigidbody2D _rigid;
-    //qƒIƒuƒWƒFƒNƒg”»’è—p
+    //å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåˆ¤å®šç”¨
     private int _previousChildCount;
 
     void Start()
@@ -32,35 +32,35 @@ public class ResourceScript : MonoBehaviour
 
     void Update()
     {
-        //update“à‚ÅqƒIƒuƒWƒFƒNƒg‚Ì”‚ğŠÄ‹
+        //updateå†…ã§å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ•°ã‚’ç›£è¦–
         if (transform.childCount != _previousChildCount)
         {
-            //•Ï‰»‚µ‚Ä‚¢‚½‚ç—Í‚ğŒvZ
+            //å¤‰åŒ–ã—ã¦ã„ãŸã‚‰åŠ›ã‚’è¨ˆç®—
             CaluculateSpeed();
         }
-        //qƒIƒuƒWƒFƒNƒg‚Ì”‚ğ‡‚í‚¹‚é
+        //å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ•°ã‚’åˆã‚ã›ã‚‹
         _previousChildCount = transform.childCount;
     }
 
     /// <summary>
-    /// qƒIƒuƒWƒFƒNƒg‘S‚Ä‚ğŒ©‚ÄA—Í‚ğŒvZ
-    /// ˆê”Ô’x‚¢ƒXƒs[ƒh‚É‡‚í‚¹‚é
+    /// å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå…¨ã¦ã‚’è¦‹ã¦ã€åŠ›ã‚’è¨ˆç®—
+    /// ä¸€ç•ªé…ã„ã‚¹ãƒ”ãƒ¼ãƒ‰ã«åˆã‚ã›ã‚‹
     /// </summary>
     void CaluculateSpeed()
     {
-        //—Í
+        //åŠ›
         float power = 0f;
-        //ƒXƒs[ƒh
+        //ã‚¹ãƒ”ãƒ¼ãƒ‰
         float speed = 100f;
 
-        //qƒIƒuƒWƒFƒNƒg‘S‚ÄŒ©‚é
+        //å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå…¨ã¦è¦‹ã‚‹
         foreach (Transform child in transform)
         {
-            //•ÏX—\’è
+            //å¤‰æ›´äºˆå®š
             var testSpeed = child.GetComponent<TestSpeed>();
-            //—Í‚ğ‘«‚·
+            //åŠ›ã‚’è¶³ã™
             power += testSpeed.Power;
-            //ƒXƒs[ƒh‚ğ’á‚¢‚à‚Ì‚É‡‚í‚¹‚é
+            //ã‚¹ãƒ”ãƒ¼ãƒ‰ã‚’ä½ã„ã‚‚ã®ã«åˆã‚ã›ã‚‹
             if (speed > testSpeed.Speed) speed = testSpeed.Speed;
         }
 
@@ -79,7 +79,7 @@ public class ResourceScript : MonoBehaviour
     }
 
     /// <summary>
-    /// w’n‚É–ß‚Á‚½‚çÁ‚¦‚é
+    /// é™£åœ°ã«æˆ»ã£ãŸã‚‰æ¶ˆãˆã‚‹
     /// </summary>
     public void OnDisable()
     {
