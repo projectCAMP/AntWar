@@ -233,7 +233,6 @@ GameObject:
   - component: {fileID: 1234381215}
   - component: {fileID: 1234381214}
   - component: {fileID: 1234381213}
-  - component: {fileID: 1234381212}
   - component: {fileID: 1234381211}
   m_Layer: 0
   m_Name: Circle
@@ -256,18 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mass: 0
   _score: 0
---- !u!114 &1234381212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234381210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d283484e67b2ce458dcea48a08af7a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1234381213
 Rigidbody2D:
   serializedVersion: 4
