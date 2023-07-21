@@ -23,7 +23,7 @@ public class Main : MonoBehaviour
     //コストを計算
     int Stock = 0;
 
-    //キャラクターの編成情報を配列で管理
+    //キャラクターの編成情報をリストで管理
     List<Character> orgnizationList = new List<Character>();
 
     //消費するコストの種類を決定する(めんどくさいのでpublic staticにしています)、注意として何もしていない状態を99にしています
@@ -82,6 +82,8 @@ public class Main : MonoBehaviour
     {
         scoreTex.text = "Score = " + Stock.ToString() + "/ " + maxScore;
     }
+
+    //コスト消費&召喚
     void Use()
     {
         if (orgnizationList[costIndex].Cost <= Stock)
@@ -121,7 +123,7 @@ public class Main : MonoBehaviour
         // プールから取得したオブジェクトを 2 秒後にプールに戻すコルーチン
         IEnumerator Process()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(6);
             pools.Release(gameObject);
         }
 
