@@ -6,17 +6,17 @@ using UnityEngine.Pool;
 
 public class Main : MonoBehaviour
 {
-    //ここからInspectorでコンポーネントなどを取得している
+    //コンポーネント取得が目的
     //マウス位置確認用のオブジェクトのTransform
     [SerializeField] Transform test;
     //スコア表示のテキスト
-    [SerializeField] TextMeshProUGUI scoreTex;
-    //生成Object
-    [SerializeField] GameObject tester;
+    [SerializeField] TextMeshProUGUI costTex;
 
-    //ここからInspectorでも値を変更できるように設定している
+    //値変更が目的
     //最大のコストを設定
-    [SerializeField] int maxScore;
+    [SerializeField] int maxCost;
+    //生成するobject(今後これがアリになる)
+    [SerializeField] GameObject[] createObj;
 
     //マウス位置を一定間隔で取得するためのカウント
     int count = 0;
@@ -25,16 +25,23 @@ public class Main : MonoBehaviour
 
     //キャラクターの編成情報をリストで管理
     List<Character> orgnizationList = new List<Character>();
+    //オブジェクトプールをリストで管理
+    List<ObjectPool<GameObject>> pools = new List<ObjectPool<GameObject>>();
+    //消す予定のオブジェクトを順番に持つ(試験用、アリを消すときに使用する)
+    List<GameObject> vanishes = new List<GameObject>();
+    //vanishのインデックスを持つ
+    List<int> vaniIndex = new List<int>();
 
     //消費するコストの種類を決定する(めんどくさいのでpublic staticにしています)、注意として何もしていない状態を99にしています
-    public static int costIndex = 99;
-
-    ObjectPool<GameObject> pools;
+    public static int characterIndex = 99;
     void Start()
     {
-        pools = new ObjectPool<GameObject>(createFunc: CreatePooledItem, actionOnGet: OnTakeFromPool, actionOnRelease: OnReturnedToPool, actionOnDestroy: OnDestroyPoolObject, collectionCheck: true, defaultCapacity: 10, maxSize: 100);
+        for(int i = 0; i < createObj.Length; i++)
+        {
+            pools.Add(new ObjectPool<GameObject>(createFunc: CreatePooledItem, actionOnGet: OnTakeFromPool, actionOnRelease: OnReturnedToPool, actionOnDestroy: OnDestroyPoolObject, collectionCheck: true, defaultCapacity: 5, maxSize: 10));
+        }
         TextWrite();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < createObj.Length; i++)
         {
             orgnizationList.Add(new Character());
         }
@@ -43,7 +50,6 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //count++;
         if (count % 3 == 0)
         {
             Vector2 mousePosition = Input.mousePosition;
@@ -51,28 +57,16 @@ public class Main : MonoBehaviour
             test.position = target;
         }
 
-        /*if(count % 60 == 0 && Stock < maxScore)
-        {
-            Stock++;
-            TextWrite();
-        }*/
-
-        if (costIndex != 99)
+        if (characterIndex != 99)
         {
             Use();
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            var gameObject = pools.Get();
-            Debug.Log(pools.CountInactive);
         }
     }
 
     private void FixedUpdate()//updateだと不規則な加算になっていたためfixedに一旦置いてある
     {
         count++;
-        if (count % 20 == 0 && Stock < maxScore)
+        if (count % 20 == 0 && Stock < maxCost)
         {
             Stock++;
             TextWrite();
@@ -80,22 +74,25 @@ public class Main : MonoBehaviour
     }
     void TextWrite()
     {
-        scoreTex.text = "Score = " + Stock.ToString() + "/ " + maxScore;
+        costTex.text = "Cost = " + Stock.ToString() + "/ " + maxCost;
     }
 
     //コスト消費&召喚
     void Use()
     {
-        if (orgnizationList[costIndex].Cost <= Stock)
+        if (orgnizationList[characterIndex].Cost <= Stock)
         {
-            Stock -= orgnizationList[costIndex].Cost;
+            Stock -= orgnizationList[characterIndex].Cost;
             TextWrite();
-            costIndex = 99;
+            var gameObject = pools[characterIndex].Get();
+            vanishes.Add(gameObject);
+            vaniIndex.Add(characterIndex);
+            characterIndex = 99;
             Debug.Log("yes");
         }
         else
         {
-            costIndex = 99;
+            characterIndex = 99;
             Debug.Log("no");
         }
     }
@@ -103,7 +100,21 @@ public class Main : MonoBehaviour
     //ここからObjectPool用の関数
     private GameObject CreatePooledItem()
     {
-        return GameObject.CreatePrimitive(PrimitiveType.Cube);
+        if(characterIndex != 99)
+        {
+            switch (characterIndex)
+            {
+                case 0:
+                    return Instantiate(createObj[0],new Vector3(0, 0, 0),Quaternion.identity);
+                case 1:
+                    return Instantiate(createObj[1], new Vector3(0, 0, 0), Quaternion.identity);
+                case 2:
+                    return Instantiate(createObj[2], new Vector3(0, 0, 0), Quaternion.identity);
+                case 3:
+                    return Instantiate(createObj[3], new Vector3(0, 0, 0), Quaternion.identity);
+            }
+        }
+        return createObj[0];
     }
 
     private void OnTakeFromPool(GameObject gameObject)
@@ -119,12 +130,12 @@ public class Main : MonoBehaviour
             y: Random.Range(-range, range),
             z: Random.Range(-range, range)
         );
-
-        // プールから取得したオブジェクトを 2 秒後にプールに戻すコルーチン
         IEnumerator Process()
         {
-            yield return new WaitForSeconds(6);
-            pools.Release(gameObject);
+            yield return new WaitForSeconds(3);
+            pools[vaniIndex[0]].Release(vanishes[0]);
+            vanishes.RemoveAt(0);
+            vaniIndex.RemoveAt(0);
         }
 
         // プールから取得したオブジェクトを 2 秒後にプールに戻すコルーチンを実行します
@@ -141,22 +152,6 @@ public class Main : MonoBehaviour
     {
         // 最大サイズを超えたオブジェクトはプールに戻さずに削除します
         Destroy(gameObject);
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.Label($"プール対象のすべてのオブジェクトの数：{pools.CountAll.ToString()}");
-        GUILayout.Label($"アクティブなオブジェクトの数：{pools.CountActive.ToString()}");
-        GUILayout.Label($"非アクティブなオブジェクトの数：{pools.CountInactive.ToString()}");
-
-        if (GUILayout.Button("生成"))
-        {
-            var gameObject = pools.Get();
-        }
-        else if (GUILayout.Button("プールをクリア"))
-        {
-            pools.Clear();
-        }
     }
 }
     
