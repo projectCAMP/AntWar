@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 運搬ユニットのスクリプト
+/// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class CarryAnt : Ant
 {
@@ -14,6 +17,10 @@ public class CarryAnt : Ant
     }
   }
 
+  /// <summary>
+  /// Resourceという名前のオブジェクトにぶつかるとそのオブジェクトの子オブジェクトになる
+  /// </summary>
+  /// <param name="collision"></param>
   private void OnTriggerEnter2D(Collider2D collision)
   {
     if (collision.gameObject.name == "Resource")
