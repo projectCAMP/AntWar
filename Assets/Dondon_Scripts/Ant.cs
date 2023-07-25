@@ -36,7 +36,7 @@ public class Ant : MonoBehaviour
   private int _power;
   public int Power => _power;
 
-  private void Start()
+  protected virtual void Start()
   {
     if (!IsHostile)
     {
