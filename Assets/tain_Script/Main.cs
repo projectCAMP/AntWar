@@ -7,10 +7,10 @@ using UnityEngine.Pool;
 public class Main : MonoBehaviour
 {
     //コンポーネント取得が目的
-    //マウス位置確認用のオブジェクトのTransform
-    [SerializeField] Transform test;
     //スコア表示のテキスト
     [SerializeField] TextMeshProUGUI costTex;
+    //壁のオブジェクト
+    [SerializeField] GameObject wall;
 
     //値変更が目的
     //最大のコストを設定
@@ -36,30 +36,30 @@ public class Main : MonoBehaviour
     public static int characterIndex = 99;
     void Start()
     {
-        for(int i = 0; i < createObj.Length; i++)
+        for (int i = 0; i < createObj.Length; i++)
         {
             pools.Add(new ObjectPool<GameObject>(createFunc: CreatePooledItem, actionOnGet: OnTakeFromPool, actionOnRelease: OnReturnedToPool, actionOnDestroy: OnDestroyPoolObject, collectionCheck: true, defaultCapacity: 5, maxSize: 10));
         }
         TextWrite();
         for (int i = 0; i < createObj.Length; i++)
         {
-            orgnizationList.Add(new Character());
+            orgnizationList.Add(new Character(i));
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (count % 3 == 0)
-        {
-            Vector2 mousePosition = Input.mousePosition;
-            Vector2 target = Camera.main.ScreenToWorldPoint(mousePosition);
-            test.position = target;
-        }
-
+        //キャラクターを生成
         if (characterIndex != 99)
         {
             Use();
+        }
+
+        //壁を生成
+        if (Input.GetMouseButtonDown(0))
+        {
+            //Instantiate(wall, mousePosition(), Quaternion.identity);
         }
     }
 
@@ -96,16 +96,23 @@ public class Main : MonoBehaviour
             Debug.Log("no");
         }
     }
+    //マウスポジションの取得
+    Vector2 mousePosition()
+    {
+        Vector2 mousePosition = Input.mousePosition;
+        Vector2 target = Camera.main.ScreenToWorldPoint(mousePosition);
+        return target;
+    }
 
     //ここからObjectPool用の関数
     private GameObject CreatePooledItem()
     {
-        if(characterIndex != 99)
+        if (characterIndex != 99)
         {
             switch (characterIndex)
             {
                 case 0:
-                    return Instantiate(createObj[0],new Vector3(0, 0, 0),Quaternion.identity);
+                    return Instantiate(createObj[0], new Vector3(0, 0, 0), Quaternion.identity);
                 case 1:
                     return Instantiate(createObj[1], new Vector3(0, 0, 0), Quaternion.identity);
                 case 2:
