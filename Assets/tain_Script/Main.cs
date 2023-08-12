@@ -24,7 +24,7 @@ public class Main : MonoBehaviour
     int Stock = 0;
 
     //キャラクターの編成情報をリストで管理
-    List<Character> orgnizationList = new List<Character>();
+    List<Character> organizationList = new List<Character>();
     //オブジェクトプールをリストで管理
     List<ObjectPool<GameObject>> pools = new List<ObjectPool<GameObject>>();
     //消す予定のオブジェクトを順番に持つ(試験用、アリを消すときに使用する)
@@ -43,7 +43,7 @@ public class Main : MonoBehaviour
         TextWrite();
         for (int i = 0; i < createObj.Length; i++)
         {
-            orgnizationList.Add(new Character(i));
+            organizationList.Add(new Character(i));
         }
     }
 
@@ -80,9 +80,9 @@ public class Main : MonoBehaviour
     //コスト消費&召喚
     void Use()
     {
-        if (orgnizationList[characterIndex].Cost <= Stock)
+        if (organizationList[characterIndex].Cost <= Stock)
         {
-            Stock -= orgnizationList[characterIndex].Cost;
+            Stock -= organizationList[characterIndex].Cost;
             TextWrite();
             var gameObject = pools[characterIndex].Get();
             vanishes.Add(gameObject);
