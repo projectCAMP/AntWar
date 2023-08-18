@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ant : MonoBehaviour
 {
   /// <summary>
-  /// ステータス参照用のデータ
+  /// マスタデータ
   /// </summary>
   private AntData _data;
   public AntData Data { get { return _data; } private set { _data = value; } }

@@ -15,7 +15,7 @@ MonoBehaviour:
   Stats:
   - Name: "\u30A2\u30EA1"
     Type: 0
-    Cost: 120
+    Cost: 100
     Health: 200
     Speed: 1
     Power: 100
