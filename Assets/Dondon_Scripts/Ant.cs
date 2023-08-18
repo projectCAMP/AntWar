@@ -41,7 +41,7 @@ public class Ant : MonoBehaviour
   private int _power;
   public int Power => _power;
 
-  protected virtual void Start()
+  private void Awake()
   {
     Data = Resources.Load<AntData>("Data/AntData");
     Stats = Data.GetDataByName(gameObject.name);//dataから名前で検索し、そのインデックスを取得
@@ -58,5 +58,10 @@ public class Ant : MonoBehaviour
       //敵ならばパワーをマイナスに
       _power = -Stats.Power;
     }
+  }
+
+  protected virtual void Start()
+  {
+
   }
 }
