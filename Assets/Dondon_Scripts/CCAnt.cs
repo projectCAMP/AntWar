@@ -15,4 +15,8 @@ public class CCAnt : Ant
       Debug.Log("UnitType Error");
     }
   }
+
+
+
+
 }
