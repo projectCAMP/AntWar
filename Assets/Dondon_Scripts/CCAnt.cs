@@ -10,13 +10,9 @@ public class CCAnt : Ant
   protected override void Start()
   {
     base.Start();
-    if (Stats.Type == UnitType.Carry)
+    if (Stats.Type == AntStats.UnitType.Carry)
     {
       Debug.Log("UnitType Error");
     }
   }
-
-
-
-
 }

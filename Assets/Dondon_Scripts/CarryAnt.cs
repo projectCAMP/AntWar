@@ -11,7 +11,7 @@ public class CarryAnt : Ant
   protected override void Start()
   {
     base.Start();
-    if (Stats.Type == UnitType.CC)
+    if (Stats.Type == AntStats.UnitType.CC)
     {
       Debug.Log("UnitType Error");
     }

@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffce8ad678df2484099c83c9a14f1dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 966b6a370a0de1a4e91d2f4a55209c80, type: 2}
   _isHostile: 0
 --- !u!1 &1234381210
 GameObject:
@@ -620,7 +619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffce8ad678df2484099c83c9a14f1dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 715e23388c143a048b8f83c63d903612, type: 2}
   _isHostile: 1
 --- !u!1 &1602953890
 GameObject:
@@ -719,7 +717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffce8ad678df2484099c83c9a14f1dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 22d9c645635db3549b252944d1c9bc24, type: 2}
   _isHostile: 1
 --- !u!1 &1635855286
 GameObject:
@@ -819,7 +816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b75804923556e4abab1626e8c2ba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 20b528f87338c484d8eaf2c6bcde4a07, type: 2}
   _isHostile: 0
 --- !u!58 &1635855291
 CircleCollider2D:
@@ -953,5 +949,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffce8ad678df2484099c83c9a14f1dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 0f022781f13ad544ab5c1bbd3188d629, type: 2}
   _isHostile: 1
