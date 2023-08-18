@@ -7,12 +7,12 @@ using UnityEngine;
 /// </summary>
 public class CCAnt : Ant
 {
-  protected override void Start()
-  {
-    base.Start();
-    if (Stats.Type == AntStats.UnitType.Carry)
+    protected override void Start()
     {
-      Debug.Log("UnitType Error");
+        base.Start();
+        if (Stats.Type == AntStats.UnitType.Carry)
+        {
+            Debug.Log("UnitType Error");
+        }
     }
-  }
 }

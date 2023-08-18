@@ -12,24 +12,24 @@ using UnityEngine;
 [ExcelAsset]
 public class AntData : ScriptableObject
 {
-  public List<AntStats> Stats; // Replace 'EntityType' to an actual type that is serializable.
+    public List<AntStats> Stats; // Replace 'EntityType' to an actual type that is serializable.
 
-  /// <summary>
-  /// ステータス検索用
-  /// 素晴らしいchatgptが教えてくれました
-  /// </summary>
-  /// <param name="name"></param>
-  /// <returns></returns>
-  public AntStats GetDataByName(string name)
-  {
-    foreach (var dataObject in Stats)
+    /// <summary>
+    /// ステータス検索用
+    /// 素晴らしいchatgptが教えてくれました
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public AntStats GetDataByName(string name)
     {
-      if (dataObject.Name == name)
-      {
-        return dataObject;
-      }
+        foreach (var dataObject in Stats)
+        {
+            if (dataObject.Name == name)
+            {
+                return dataObject;
+            }
+        }
+        return null; // 名前が一致するデータが見つからない場合はnullを返す
     }
-    return null; // 名前が一致するデータが見つからない場合はnullを返す
-  }
 
 }
