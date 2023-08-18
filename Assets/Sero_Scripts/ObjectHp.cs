@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectHp : MonoBehaviour
 {
     GameObject Objectgeneration;
-    [SerializeField] float destorylimittime;
+    float destorylimittime;
     float destorytime;
     bool value = true;
 
@@ -13,6 +13,8 @@ public class ObjectHp : MonoBehaviour
     void Start()
     {
         Objectgeneration = GameObject.Find("Objectgenerater");
+
+        destorylimittime = this.gameObject.GetComponent<Ant>().Stats.Health;
     }
 
     // Update is called once per frame

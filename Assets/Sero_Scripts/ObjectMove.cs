@@ -9,7 +9,7 @@ public class ObjectMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Movespeed = this.gameObject.GetComponent<Ant>().Stats.Speed;
     }
 
     // Update is called once per frame
