@@ -37,7 +37,7 @@ public class ObjectHp : MonoBehaviour
                 value = false;
             }
 
-            Destroy(this.gameObject, 0);
+            //Destroy(this.gameObject, 0);
 
     }
     

@@ -24,7 +24,7 @@ public class AntPool : MonoBehaviour
     int Stock = 0;
 
     //キャラクターの編成情報をリストで管理
-    List<Character> organizationList = new List<Character>();
+    List<Ant> organizationList = new List<Ant>();
     //オブジェクトプールをリストで管理
     List<ObjectPool<GameObject>> pools = new List<ObjectPool<GameObject>>();
     //消す予定のオブジェクトを順番に持つ(試験用、アリを消すときに使用する)
@@ -33,7 +33,7 @@ public class AntPool : MonoBehaviour
     List<int> vaniIndex = new List<int>();
 
     //消費するコストの種類を決定する(めんどくさいのでpublic staticにしています)、注意として何もしていない状態を99にしています
-    public static int characterIndex = 99;
+    public static int AntIndex = 2;
     void Start()
     {
         for (int i = 0; i < createObj.Length; i++)
@@ -43,7 +43,9 @@ public class AntPool : MonoBehaviour
         TextWrite();
         for (int i = 0; i < createObj.Length; i++)
         {
-            organizationList.Add(new Character(i));
+            organizationList.Add(createObj[i].GetComponent<Ant>());
+            Debug.Log(organizationList[i]);
+            Debug.Log("#");
         }
     }
 
@@ -51,7 +53,7 @@ public class AntPool : MonoBehaviour
     void Update()
     {
         //キャラクターを生成
-        if (characterIndex != 99)
+        if (AntIndex != 99)
         {
             Use();
         }
@@ -80,19 +82,21 @@ public class AntPool : MonoBehaviour
     //コスト消費&召喚
     void Use()
     {
-        if (organizationList[characterIndex].Cost <= Stock)
+        Debug.Log(organizationList[AntIndex]);
+        if (organizationList[AntIndex].Stats.Cost <= Stock)
         {
-            Stock -= organizationList[characterIndex].Cost;
+            Stock -= organizationList[AntIndex].Stats.Cost;
             TextWrite();
-            var gameObject = pools[characterIndex].Get();
+            Debug.Log(AntIndex);
+            var gameObject = pools[AntIndex].Get();
             vanishes.Add(gameObject);
-            vaniIndex.Add(characterIndex);
-            characterIndex = 99;
+            vaniIndex.Add(AntIndex);
+            AntIndex = 99;
             Debug.Log("yes");
         }
         else
         {
-            characterIndex = 99;
+            AntIndex = 99;
             Debug.Log("no");
         }
     }
@@ -107,18 +111,38 @@ public class AntPool : MonoBehaviour
     //ここからObjectPool用の関数
     private GameObject CreatePooledItem()
     {
-        if (characterIndex != 99)
+        if (AntIndex != 99)
         {
-            switch (characterIndex)
+            switch (AntIndex)
             {
                 case 0:
-                    return Instantiate(createObj[0], new Vector3(0, 0, 0), Quaternion.identity);
+                    var defaultName = createObj[0].name;
+                    GameObject stock = Instantiate(createObj[0], new Vector3(0, 0, 0), Quaternion.identity);
+                    stock.name = defaultName;
+                    stock.GetComponent<Ant>().CreateAnt();
+                    return stock;
                 case 1:
-                    return Instantiate(createObj[1], new Vector3(0, 0, 0), Quaternion.identity);
+                    var defaultName2 = createObj[1].name;
+                    GameObject stock2 = Instantiate(createObj[1], new Vector3(0, 0, 0), Quaternion.identity);
+                    stock2.name = defaultName2;
+                    stock2.GetComponent<Ant>().CreateAnt();
+
+                    return stock2;
                 case 2:
-                    return Instantiate(createObj[2], new Vector3(0, 0, 0), Quaternion.identity);
+                    Debug.Log(createObj[2]);
+                    var defaultName3 = createObj[2].name;
+                    GameObject stock3 = Instantiate(createObj[2], new Vector3(0, 0, 0), Quaternion.identity);
+                    stock3.name = defaultName3;
+                    stock3.GetComponent<Ant>().CreateAnt();
+
+                    return stock3;
                 case 3:
-                    return Instantiate(createObj[3], new Vector3(0, 0, 0), Quaternion.identity);
+                    var defaultName4 = createObj[3].name;
+                    GameObject stock4 = Instantiate(createObj[3], new Vector3(0, 0, 0), Quaternion.identity);
+                    stock4.name = defaultName4;
+                    stock4.GetComponent<Ant>().CreateAnt();
+
+                    return stock4;
             }
         }
         return createObj[0];
@@ -137,16 +161,8 @@ public class AntPool : MonoBehaviour
             y: Random.Range(-range, range),
             z: Random.Range(-range, range)
         );
-        IEnumerator Process()
-        {
-            yield return new WaitForSeconds(3);
-            pools[vaniIndex[0]].Release(vanishes[0]);
-            vanishes.RemoveAt(0);
-            vaniIndex.RemoveAt(0);
-        }
-
         // プールから取得したオブジェクトを 2 秒後にプールに戻すコルーチンを実行します
-        StartCoroutine(Process());
+        //StartCoroutine(Process());
     }
 
     private void OnReturnedToPool(GameObject gameObject)
