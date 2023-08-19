@@ -62,4 +62,9 @@ public class ButtonTap : MonoBehaviour
         Info.MenuPanel.SetActive(false);
         Info.EditPanel.SetActive(false);
     }
+
+    public void buttonpush(int value)
+    {
+        AntPool.AntIndex = value;
+    }
 }

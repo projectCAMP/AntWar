@@ -41,7 +41,25 @@ public class Ant : MonoBehaviour
     private int _power;
     public int Power => _power;
 
-    private void Awake()
+    /*private void Awake()
+    {
+        Data = Resources.Load<AntData>("Data/AntData");
+        Stats = Data.GetDataByName(gameObject.name);//オブジェクトの名前からステータスを取得
+        if (!IsHostile)
+        {
+            _health = Stats.Health;
+            _speed = Stats.Speed;
+            _power = Stats.Power;
+        }
+        else if (IsHostile)
+        {
+            _health = Stats.Health;
+            _speed = Stats.Speed;
+            //敵ならばパワーをマイナスに
+            _power = -Stats.Power;
+        }
+    }*/
+    public  void CreateAnt()
     {
         Data = Resources.Load<AntData>("Data/AntData");
         Stats = Data.GetDataByName(gameObject.name);//オブジェクトの名前からステータスを取得
@@ -59,7 +77,6 @@ public class Ant : MonoBehaviour
             _power = -Stats.Power;
         }
     }
-
     protected virtual void Start()
     {
 
