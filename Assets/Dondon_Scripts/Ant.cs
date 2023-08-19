@@ -44,7 +44,7 @@ public class Ant : MonoBehaviour
     private void Awake()
     {
         Data = Resources.Load<AntData>("Data/AntData");
-        Stats = Data.GetDataByName(gameObject.name);//dataから名前で検索し、そのインデックスを取得
+        Stats = Data.GetDataByName(gameObject.name);//オブジェクトの名前からステータスを取得
         if (!IsHostile)
         {
             _health = Stats.Health;
