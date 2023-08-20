@@ -55,7 +55,7 @@ public class AntPool : MonoBehaviour
         //キャラクターを生成
         if (AntIndex != 99)
         {
-            Use();
+            //Use();
         }
 
         //壁を生成

@@ -36,6 +36,7 @@ public class ButtonTap : MonoBehaviour
     }
     public void UnitChanger(int value)
     {
+        Debug.Log(value + 1);
         if (unitIndex < unitCounter)
         {
             unitsStock.Add(value);

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class objectgeneration : MonoBehaviour
 {
-    [SerializeField] List<GameObject> ObjectList;
+    //[SerializeField] List<GameObject> ObjectList;
     [SerializeField] List<GameObject> generationpositionList;
     [SerializeField] int ObjectLimit = 5;
     int generationpositionnumber = 0;
     public int Objectnumber;
     public int Objectvalue;
     Vector3 generationposition;
+
+    List<GameObject> vanishes = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,17 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                Instantiate(ObjectList[Objectnumber], generationposition, Quaternion.Euler(0, 0, 0));
+                for(int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                {
+                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    {
+                        GameManager.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(GameManager.objs[Objectnumber][i]);
+                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        StartCoroutine("DelayVanish");
+                        break;
+                    }
+                }
             }
 
             if (objectdirection == 1)
@@ -44,7 +56,17 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                Instantiate(ObjectList[Objectnumber], generationposition, Quaternion.Euler(0, 0, 45));
+                for (int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                {
+                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    {
+                        GameManager.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(GameManager.objs[Objectnumber][i]);
+                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        StartCoroutine("DelayVanish");
+                        break;
+                    }
+                }
             }
 
             if (objectdirection == 2)
@@ -53,10 +75,29 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                Instantiate(ObjectList[Objectnumber], generationposition, Quaternion.Euler(0, 0, -45));
+                for (int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                {
+                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    {
+                        GameManager.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(GameManager.objs[Objectnumber][i]);
+                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        StartCoroutine("DelayVanish");
+                        break;
+                    }
+                }
             }
-
             Objectvalue += 1;
         }
+    }
+    IEnumerator DelayVanish()
+    {
+        //3ïbí‚é~
+        yield return new WaitForSeconds(3);
+
+        vanishes[0].SetActive(false);
+        vanishes.RemoveAt(0);
+
+        yield return null;
     }
 }
