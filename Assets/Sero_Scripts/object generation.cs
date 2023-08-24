@@ -28,7 +28,9 @@ public class objectgeneration : MonoBehaviour
 
     public void generation(int objectdirection)
     {
-        if (Objectvalue < ObjectLimit)
+        Debug.Log(Objectnumber);
+        Debug.Log(Pools.objs.Count);
+        if (Objectvalue < ObjectLimit && Pools.objs[Objectnumber] != null)
         {
             
             if(objectdirection == 0)
@@ -37,13 +39,13 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                for(int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                for(int i = 0; i < Pools.objs[Objectnumber].Count; i++)
                 {
-                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
-                        GameManager.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(GameManager.objs[Objectnumber][i]);
-                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         StartCoroutine("DelayVanish");
                         break;
                     }
@@ -56,13 +58,13 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                for (int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
                 {
-                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
-                        GameManager.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(GameManager.objs[Objectnumber][i]);
-                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         StartCoroutine("DelayVanish");
                         break;
                     }
@@ -75,13 +77,13 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                for (int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
                 {
-                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
-                        GameManager.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(GameManager.objs[Objectnumber][i]);
-                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         StartCoroutine("DelayVanish");
                         break;
                     }

@@ -44,8 +44,6 @@ public class AntPool : MonoBehaviour
         for (int i = 0; i < createObj.Length; i++)
         {
             organizationList.Add(createObj[i].GetComponent<Ant>());
-            Debug.Log(organizationList[i]);
-            Debug.Log("#");
         }
     }
 
@@ -55,7 +53,7 @@ public class AntPool : MonoBehaviour
         //キャラクターを生成
         if (AntIndex != 99)
         {
-            //Use();
+            Use();
         }
 
         //壁を生成
@@ -82,22 +80,18 @@ public class AntPool : MonoBehaviour
     //コスト消費&召喚
     void Use()
     {
-        Debug.Log(organizationList[AntIndex]);
         if (organizationList[AntIndex].Stats.Cost <= Stock)
         {
             Stock -= organizationList[AntIndex].Stats.Cost;
             TextWrite();
-            Debug.Log(AntIndex);
             var gameObject = pools[AntIndex].Get();
             vanishes.Add(gameObject);
             vaniIndex.Add(AntIndex);
             AntIndex = 99;
-            Debug.Log("yes");
         }
         else
         {
             AntIndex = 99;
-            Debug.Log("no");
         }
     }
     //マウスポジションの取得
@@ -129,7 +123,6 @@ public class AntPool : MonoBehaviour
 
                     return stock2;
                 case 2:
-                    Debug.Log(createObj[2]);
                     var defaultName3 = createObj[2].name;
                     GameObject stock3 = Instantiate(createObj[2], new Vector3(0, 0, 0), Quaternion.identity);
                     stock3.name = defaultName3;
