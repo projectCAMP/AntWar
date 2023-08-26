@@ -32,6 +32,10 @@ public class Move : MonoBehaviour
         layerMask = 1 << LayerMask.NameToLayer("wall");
     }
 
+	void OnEnable() {
+		status = "Stop";
+	}
+
     void InitialTarget()
     {
         float nearDis = 0;
@@ -117,7 +121,7 @@ public class Move : MonoBehaviour
         {
             InitialTarget();
         }
-        if (WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.1)
+        if (WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.5)
         {
             SetWayPoints();
         }
@@ -127,7 +131,7 @@ public class Move : MonoBehaviour
 
     void ChaseMove()
     {
-        if (WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.1)
+        if (WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.5)
         {
             
         }
