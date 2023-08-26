@@ -94,8 +94,8 @@ public class objectgeneration : MonoBehaviour
     }
     IEnumerator DelayVanish()
     {
-        //3•b’âŽ~
-        yield return new WaitForSeconds(3);
+        //3ï¿½bï¿½ï¿½~
+        yield return new WaitForSeconds(10);
 
         vanishes[0].SetActive(false);
         vanishes.RemoveAt(0);
