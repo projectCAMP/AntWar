@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Information : MonoBehaviour
 {
-    [SerializeField] public GameObject GamePanel; [SerializeField] public GameObject MenuPanel; [SerializeField] public GameObject EditPanel;
+    public GameObject GamePanel; public GameObject MenuPanel; public GameObject EditPanel;
+    public Image[] unitDisplay; public Sprite unitDefault; public Sprite[] unitSprites;
+    public AudioSource SE; public AudioClip sound;
 }
