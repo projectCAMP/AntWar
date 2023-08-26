@@ -102,10 +102,10 @@ public class UnitMove : MonoBehaviour
                 }
             tmpDis = Vector2.Distance(obs.transform.position, transform.position);
             if (nearDis == 0 || nearDis > tmpDis)
-                        {
-                            nearDis = tmpDis;
-                            targetObj = obs;
-                        }
+                {
+                    nearDis = tmpDis;
+                    targetObj = obs;
+                }
 
         }
         target = targetObj;
