@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8700a591ee6c30e448f12505487db597
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kaisei Opti
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8bcbcf05a0a0f4a47879741103cbb988, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -4,15 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - ant1
+  - ant2
+  - ant4
+  - ant3
   - pt
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - wall
   - Water
   - UI
-  - wall
+  - 
   - 
   - 
   - 
