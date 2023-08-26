@@ -64,8 +64,6 @@ public class Pools: MonoBehaviour
             //編成内容をエディットに反映する
             for(int i = 0; i < numberStock.Count; i++)
             {
-                Debug.Log(numberStock[i]);
-                Debug.Log(Info.unitSprites.Length);
                 Info.unitDisplay[i].sprite = Info.unitSprites[numberStock[i]];
             }
             Datas.units.Clear();
