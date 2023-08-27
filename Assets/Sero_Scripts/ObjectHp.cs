@@ -24,12 +24,12 @@ public class ObjectHp : MonoBehaviour
 
         if(destorytime >= destorylimittime)
         {
-            ObjectDestory();
+            ObjectVanish();
         }
 
     }
 
-    void ObjectDestory()
+    void ObjectVanish()
     {
             if (Objectgeneration.GetComponent<objectgeneration>().Objectvalue > 0 && value == true)
             {
@@ -37,8 +37,19 @@ public class ObjectHp : MonoBehaviour
                 value = false;
             }
 
-            //Destroy(this.gameObject, 0);
+            StartCoroutine("DelayVanish");
 
     }
-    
+
+    IEnumerator DelayVanish()
+    {
+        //3ïbí‚é~
+        yield return new WaitForSeconds(3);
+
+        Objectgeneration.GetComponent<objectgeneration>().vanishes[0].SetActive(false);
+        Objectgeneration.GetComponent<objectgeneration>().vanishes.RemoveAt(0);
+
+        yield return null;
+    }
+
 }

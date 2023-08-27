@@ -12,7 +12,7 @@ public class objectgeneration : MonoBehaviour
     public int Objectvalue;
     Vector3 generationposition;
 
-    List<GameObject> vanishes = new List<GameObject>();
+    public List<GameObject> vanishes = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +44,7 @@ public class objectgeneration : MonoBehaviour
                         GameManager.objs[Objectnumber][i].SetActive(true);
                         vanishes.Add(GameManager.objs[Objectnumber][i]);
                         GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        StartCoroutine("DelayVanish");
+                        //StartCoroutine("DelayVanish");
                         break;
                     }
                 }
@@ -63,7 +63,7 @@ public class objectgeneration : MonoBehaviour
                         GameManager.objs[Objectnumber][i].SetActive(true);
                         vanishes.Add(GameManager.objs[Objectnumber][i]);
                         GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        StartCoroutine("DelayVanish");
+                        //StartCoroutine("DelayVanish");
                         break;
                     }
                 }
@@ -82,7 +82,7 @@ public class objectgeneration : MonoBehaviour
                         GameManager.objs[Objectnumber][i].SetActive(true);
                         vanishes.Add(GameManager.objs[Objectnumber][i]);
                         GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        StartCoroutine("DelayVanish");
+                        //StartCoroutine("DelayVanish");
                         break;
                     }
                 }
@@ -90,7 +90,8 @@ public class objectgeneration : MonoBehaviour
             Objectvalue += 1;
         }
     }
-    IEnumerator DelayVanish()
+
+    /*IEnumerator DelayVanish()
     {
         //3ïbí‚é~
         yield return new WaitForSeconds(3);
@@ -99,5 +100,5 @@ public class objectgeneration : MonoBehaviour
         vanishes.RemoveAt(0);
 
         yield return null;
-    }
+    }*/
 }

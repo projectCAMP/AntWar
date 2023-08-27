@@ -3793,6 +3793,7 @@ MonoBehaviour:
   ObjectLimit: 50
   Objectnumber: 0
   Objectvalue: 0
+  vanishes: []
 --- !u!114 &1937884921
 MonoBehaviour:
   m_ObjectHideFlags: 0
