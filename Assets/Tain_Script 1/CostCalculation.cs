@@ -6,6 +6,6 @@ public class CostCalculation : MonoBehaviour
 {
     public void DecideCost(int value)//0番から自軍のキャラクターのインデックスを指定する
     {
-        Main.characterIndex = value;
+        AntPool.AntIndex = value;
     }
 }

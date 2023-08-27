@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class objectgeneration : MonoBehaviour
 {
-    [SerializeField] List<GameObject> ObjectList;
+    //[SerializeField] List<GameObject> ObjectList;
     [SerializeField] List<GameObject> generationpositionList;
     [SerializeField] int ObjectLimit = 5;
     int generationpositionnumber = 0;
     public int Objectnumber;
     public int Objectvalue;
     Vector3 generationposition;
+
+    List<GameObject> vanishes = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,9 @@ public class objectgeneration : MonoBehaviour
 
     public void generation(int objectdirection)
     {
-        if (Objectvalue < ObjectLimit)
+        Debug.Log(Objectnumber);
+        Debug.Log(Pools.objs.Count);
+        if (Objectvalue < ObjectLimit && Pools.objs[Objectnumber] != null)
         {
             
             if(objectdirection == 0)
@@ -35,7 +39,17 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                Instantiate(ObjectList[Objectnumber], generationposition, Quaternion.Euler(0, 0, 0));
+                for(int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                {
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
+                    {
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        StartCoroutine("DelayVanish");
+                        break;
+                    }
+                }
             }
 
             if (objectdirection == 1)
@@ -44,7 +58,17 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                Instantiate(ObjectList[Objectnumber], generationposition, Quaternion.Euler(0, 0, 45));
+                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                {
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
+                    {
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        StartCoroutine("DelayVanish");
+                        break;
+                    }
+                }
             }
 
             if (objectdirection == 2)
@@ -53,10 +77,29 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                Instantiate(ObjectList[Objectnumber], generationposition, Quaternion.Euler(0, 0, -45));
+                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                {
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
+                    {
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        StartCoroutine("DelayVanish");
+                        break;
+                    }
+                }
             }
-
             Objectvalue += 1;
         }
+    }
+    IEnumerator DelayVanish()
+    {
+        //3�b��~
+        yield return new WaitForSeconds(10);
+
+        vanishes[0].SetActive(false);
+        vanishes.RemoveAt(0);
+
+        yield return null;
     }
 }

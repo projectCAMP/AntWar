@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ObjectMove : MonoBehaviour
 {
-    [SerializeField] float Movespeed;
+    float Movespeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Movespeed = this.gameObject.GetComponent<Ant>().Stats.Speed;
     }
 
     // Update is called once per frame

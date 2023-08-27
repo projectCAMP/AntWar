@@ -24,6 +24,8 @@ public class ResourceScript : MonoBehaviour
     //子オブジェクト判定用
     private int _previousChildCount;
 
+    public GameObject entityToSpawn;
+
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
@@ -56,13 +58,18 @@ public class ResourceScript : MonoBehaviour
         //子オブジェクト全て見る
         foreach (Transform child in transform)
         {
-            //変更予定
-            var testSpeed = child.GetComponent<TestSpeed>();
+            var antSpeed = child.GetComponent<Ant>();
+            if (antSpeed == null)
+            {
+                Debug.Log("子オブジェクトにAntUnitスクリプトが含まれていません");
+            }
             //力を足す
-            power += testSpeed.Power;
+            power += antSpeed.Power;
             //スピードを低いものに合わせる
-            if (speed > testSpeed.Speed) speed = testSpeed.Speed;
+            if (speed > antSpeed.Speed) speed = antSpeed.Speed;
         }
+
+        Debug.Log(power);
 
         if (power > 0f)
         {
