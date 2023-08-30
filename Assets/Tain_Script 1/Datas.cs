@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public static class Datas
 {
-    //ƒNƒ‰ƒXŠÔ‚Åó‚¯“n‚µ‚ğs‚¤•Ï”
+    //ã‚¯ãƒ©ã‚¹é–“ã§å—ã‘æ¸¡ã—ã‚’è¡Œã†å¤‰æ•°
     public static int value;
     public static List<int> units = new List<int>();
     public static bool changer;

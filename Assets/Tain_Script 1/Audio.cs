@@ -1,18 +1,18 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    private static bool isLoad = false;// ©g‚ª‚·‚Å‚Éƒ[ƒh‚³‚ê‚Ä‚¢‚é‚©‚ğ”»’è‚·‚éƒtƒ‰ƒO
+    private static bool isLoad = false;// è‡ªèº«ãŒã™ã§ã«ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’åˆ¤å®šã™ã‚‹ãƒ•ãƒ©ã‚°
     private void Awake()
     {
         if (isLoad)
-        { // ‚·‚Å‚Éƒ[ƒh‚³‚ê‚Ä‚¢‚½‚ç
-            Destroy(this.gameObject); // ©•ª©g‚ğ”jŠü‚µ‚ÄI—¹
+        { // ã™ã§ã«ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ãŸã‚‰
+            Destroy(this.gameObject); // è‡ªåˆ†è‡ªèº«ã‚’ç ´æ£„ã—ã¦çµ‚äº†
             return;
         }
-        isLoad = true; // ƒ[ƒh‚³‚ê‚Ä‚¢‚È‚©‚Á‚½‚çAƒtƒ‰ƒO‚ğƒ[ƒhÏ‚İ‚Éİ’è‚·‚é
+        isLoad = true; // ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ãªã‹ã£ãŸã‚‰ã€ãƒ•ãƒ©ã‚°ã‚’ãƒ­ãƒ¼ãƒ‰æ¸ˆã¿ã«è¨­å®šã™ã‚‹
         DontDestroyOnLoad(this.gameObject);
     }
 }

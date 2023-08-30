@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CostCalculation : MonoBehaviour
 {
-    public void DecideCost(int value)//0”Ô‚©‚ç©ŒR‚ÌƒLƒƒƒ‰ƒNƒ^[‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è‚·‚é
+    public void DecideCost(int value)//0ç•ªã‹ã‚‰è‡ªè»ã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®šã™ã‚‹
     {
         AntPool.AntIndex = value;
     }
