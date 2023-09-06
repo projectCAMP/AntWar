@@ -58,7 +58,8 @@ public class ButtonTap : MonoBehaviour
     {
         if (unitIndex < unitCounter)
         {
-            Info.SE.PlayOneShot(Info.sound);
+            //Info.SE.PlayOneShot(Info.sound);
+            AudioManager.instance.PlaySE(AudioManager.SE.ButtonTap);
             unitsStock.Add(value);
             unitIndex++;
         }
@@ -70,6 +71,7 @@ public class ButtonTap : MonoBehaviour
         {
             Datas.units.Add(unitsStock[i]);
         }
+        AudioManager.instance.PlaySE(AudioManager.SE.Any);
         unitIndex = 0;
         unitsStock.Clear();
     }
@@ -95,6 +97,7 @@ public class ButtonTap : MonoBehaviour
     }
     public void ChangeScene(string sceneName)
     {
+        AudioManager.instance.PlayBGM(AudioManager.BGM.GamePlay);
         SceneManager.LoadScene(sceneName);
     }
 }
