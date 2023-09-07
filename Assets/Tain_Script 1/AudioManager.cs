@@ -38,13 +38,13 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayBGM(BGM index)
     {
-        bgmAudioSource.clip = bgmList[(int)index];
-        bgmAudioSource.Play();
+        //bgmAudioSource.clip = bgmList[(int)index];
+        //bgmAudioSource.Play();
     }
 
     public void PlaySE(SE index)
     {
-        seAudioSource.clip = seList[(int)index];
-        seAudioSource.Play();
+        //seAudioSource.clip = seList[(int)index];
+        //seAudioSource.Play();
     }
 }
