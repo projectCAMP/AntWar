@@ -153,10 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3861940ea615fa24f994651b6233a605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectList:
-  - {fileID: 2895060374229552640, guid: 7eda75d1fe26fff4488a5dab8c9af082, type: 3}
-  - {fileID: 3594744462912786824, guid: d061f948c61e1eb47a3b099dfdf35118, type: 3}
-  - {fileID: 7773996822672997160, guid: 180f7945ec575bd47ab855be34a3f944, type: 3}
   generationpositionList:
   - {fileID: 0}
   - {fileID: 0}
@@ -164,6 +160,7 @@ MonoBehaviour:
   ObjectLimit: 5
   Objectnumber: 0
   Objectvalue: 0
+  vanishes: []
 --- !u!114 &431203789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,6 +926,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2111415538371711047, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
+      propertyPath: destorylimittime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7919272700152561216, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
       propertyPath: m_Name
       value: "\u30A2\u30EA2"

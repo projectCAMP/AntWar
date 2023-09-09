@@ -5,8 +5,9 @@ using UnityEngine;
 public class ObjectHp : MonoBehaviour
 {
     GameObject Objectgeneration;
-    float destorylimittime;
-    float destorytime;
+    [SerializeField] float destorylimittime;
+    [SerializeField] float destorytime;
+    [SerializeField] List<GameObject> vanishobject;
     bool value = true;
 
     // Start is called before the first frame update
@@ -24,21 +25,33 @@ public class ObjectHp : MonoBehaviour
 
         if(destorytime >= destorylimittime)
         {
-            ObjectDestory();
+            ObjectVanish();
         }
 
     }
 
-    void ObjectDestory()
+    void ObjectVanish()
     {
-            if (Objectgeneration.GetComponent<objectgeneration>().Objectvalue > 0 && value == true)
+            if (Objectgeneration.GetComponent<objectgeneration>().Objectvalue > 0)
             {
                 Objectgeneration.GetComponent<objectgeneration>().Objectvalue -= 1;
-                value = false;
             }
 
-            //Destroy(this.gameObject, 0);
-
+             StartCoroutine("Vanish");
+            
     }
-    
+
+    IEnumerator Vanish()
+    {
+        //3ïbí‚é~
+        //yield return new WaitForSeconds(1);
+
+        destorytime = 90;
+
+        Objectgeneration.GetComponent<objectgeneration>().vanishes[0].SetActive(false);
+        Objectgeneration.GetComponent<objectgeneration>().vanishes.RemoveAt(0);
+
+        yield return null;
+    }
+
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class objectgeneration : MonoBehaviour
 {
-    //[SerializeField] List<GameObject> ObjectList;
     [SerializeField] List<GameObject> generationpositionList;
     [SerializeField] int ObjectLimit = 5;
     int generationpositionnumber = 0;
@@ -12,7 +11,7 @@ public class objectgeneration : MonoBehaviour
     public int Objectvalue;
     Vector3 generationposition;
 
-    List<GameObject> vanishes = new List<GameObject>();
+    public List<GameObject> vanishes = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -43,10 +42,13 @@ public class objectgeneration : MonoBehaviour
                 {
                     if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
+
                         Pools.objs[Objectnumber][i].SetActive(true);
                         vanishes.Add(Pools.objs[Objectnumber][i]);
                         Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        StartCoroutine("DelayVanish");
+                        Objectvalue += 1;
+                        //StartCoroutine("DelayVanish");
+
                         break;
                     }
                 }
@@ -65,7 +67,9 @@ public class objectgeneration : MonoBehaviour
                         Pools.objs[Objectnumber][i].SetActive(true);
                         vanishes.Add(Pools.objs[Objectnumber][i]);
                         Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        StartCoroutine("DelayVanish");
+                        Objectvalue += 1;
+                        //StartCoroutine("DelayVanish");
+
                         break;
                     }
                 }
@@ -81,25 +85,29 @@ public class objectgeneration : MonoBehaviour
                 {
                     if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
+
                         Pools.objs[Objectnumber][i].SetActive(true);
                         vanishes.Add(Pools.objs[Objectnumber][i]);
                         Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        StartCoroutine("DelayVanish");
+                        Objectvalue += 1;
+                        //StartCoroutine("DelayVanish");
+
                         break;
                     }
                 }
             }
-            Objectvalue += 1;
+            
         }
     }
-    IEnumerator DelayVanish()
+
+    /*IEnumerator DelayVanish()
     {
         //3�b��~
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(3);
 
         vanishes[0].SetActive(false);
         vanishes.RemoveAt(0);
 
         yield return null;
-    }
+    }*/
 }
