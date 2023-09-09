@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class Character : MonoBehaviour
 {
     public int Cost = 0;
     public readonly int index = 0;
-    public Character(int value)//ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒRƒXƒg‚ğæ“¾
+    public Character(int value)//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚³ã‚¹ãƒˆã‚’å–å¾—
     {
         Cost = 0;
         index = value;

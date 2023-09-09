@@ -1,20 +1,20 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Pools: MonoBehaviour
 {
-    //¶¬‚·‚éƒAƒŠ‚Ì“à—e
+    //ç”Ÿæˆã™ã‚‹ã‚¢ãƒªã®å†…å®¹
     [SerializeField] GameObject[] ant;
-    //ƒv[ƒ‹‚É—pˆÓ‚µ‚Ä‚¨‚­ƒAƒŠ‚Ì”
+    //ãƒ—ãƒ¼ãƒ«ã«ç”¨æ„ã—ã¦ãŠãã‚¢ãƒªã®æ•°
     [SerializeField] int antAmount;
-    //“Ç‚İæ‚èê—p‚Ìƒf[ƒ^ŒQ‚ğæ‚è‚Ş
+    //èª­ã¿å–ã‚Šå°‚ç”¨ã®ãƒ‡ãƒ¼ã‚¿ç¾¤ã‚’å–ã‚Šè¾¼ã‚€
     [SerializeField] Information Info;
-    //unit‚Ì”z—ñî•ñ(ŠO•”‚Å‚àg—p‚·‚é)
+    //unitã®é…åˆ—æƒ…å ±(å¤–éƒ¨ã§ã‚‚ä½¿ç”¨ã™ã‚‹)
     public static List<List<GameObject>> objs = new List<List<GameObject>>();
-    //Šù‚É¶¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ‚Á‚Ä‚¨‚­
+    //æ—¢ã«ç”Ÿæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒã£ã¦ãŠã
     List<List<GameObject>> createdObjs = new List<List<GameObject>>();
-    //Šù‚É¶¬‚µ‚½ƒAƒŠ‚Ìí—Ş‚ğ‚Á‚Ä‚¨‚­
+    //æ—¢ã«ç”Ÿæˆã—ãŸã‚¢ãƒªã®ç¨®é¡ã‚’æŒã£ã¦ãŠã
     List<int> objType = new List<int>();
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Pools: MonoBehaviour
     {   
         if(Datas.units.Count != 0)
         {
-            //unit‚Ì”z—ñî•ñ‚ğƒNƒŠƒA‚·‚é
+            //unitã®é…åˆ—æƒ…å ±ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹
             objs.Clear();
             List<int> numberStock = new List<int>();
             for(int i = 0; i < Datas.units.Count; i++)
@@ -54,14 +54,14 @@ public class Pools: MonoBehaviour
                     stock.SetActive(false);
                     sub.Add(stock);
                 }
-                //ƒXƒgƒbƒN—p‚Æ–{”Ô—p‚Ì‚Ç‚¿‚ç‚É‚àƒIƒuƒWƒFƒNƒg‚ğƒv[ƒ‹‚µ‚½ƒŠƒXƒg‚ğ’Ç‰Á‚·‚é
+                //ã‚¹ãƒˆãƒƒã‚¯ç”¨ã¨æœ¬ç•ªç”¨ã®ã©ã¡ã‚‰ã«ã‚‚ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒ—ãƒ¼ãƒ«ã—ãŸãƒªã‚¹ãƒˆã‚’è¿½åŠ ã™ã‚‹
                 createdObjs.Add(sub);
                 objs.Add(sub);
                 objType.Add(Datas.units[i]);
                 numberStock.Add(createAntData);
             }
 
-            //•Ò¬“à—e‚ğƒGƒfƒBƒbƒg‚É”½‰f‚·‚é
+            //ç·¨æˆå†…å®¹ã‚’ã‚¨ãƒ‡ã‚£ãƒƒãƒˆã«åæ˜ ã™ã‚‹
             for(int i = 0; i < numberStock.Count; i++)
             {
                 Info.unitDisplay[i].sprite = Info.unitSprites[numberStock[i]];
