@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3536268344421663132}
   - component: {fileID: 2111415538371711047}
   - component: {fileID: 626685660075763500}
+  - component: {fileID: 8025336086230106938}
+  - component: {fileID: 3575531630044252972}
   m_Layer: 0
   m_Name: "\u30A2\u30EA2"
   m_TagString: Untagged
@@ -33,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3629156856603255979
 SpriteRenderer:
@@ -112,7 +114,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5bf4b8ddd699542a8889269301c48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destorylimittime: 0
+  destorytime: 90
 --- !u!114 &626685660075763500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919272700152561216}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29563dccea6cb64fa1669780c306a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &8025336086230106938
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919272700152561216}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.24442878
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.4158373
+  m_BaseOffset: 0.20791864
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &3575531630044252972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +159,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7919272700152561216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a29563dccea6cb64fa1669780c306a28, type: 3}
+  m_Script: {fileID: 11500000, guid: c6dc94fcb85945643bd378627ab329f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WayPoints:
+  - {fileID: 8301607955120740093, guid: 6ecf066dc89df0342a7903ce2a908430, type: 3}
+  - {fileID: 4304698940507955954, guid: af8c42099609b7741baececaa01d291c, type: 3}
+  - {fileID: 2864581085595350170, guid: 46dfcc047f9d0fb479696934bc409e6e, type: 3}

@@ -39,6 +39,7 @@ public class ButtonTap : MonoBehaviour
         Debug.Log(value + 1);
         if (unitIndex < unitCounter)
         {
+            Info.SE.PlayOneShot(Info.sound);
             unitsStock.Add(value);
             unitIndex++;
         }
@@ -56,6 +57,10 @@ public class ButtonTap : MonoBehaviour
     public void UnitReflesh()
     {
         unitIndex = 0;
+        for(int i = 0; i < 3; i++)
+        {
+            Info.unitDisplay[i].sprite = Info.unitDefault;
+        }
     }
     void AllPanelVanish()
     {

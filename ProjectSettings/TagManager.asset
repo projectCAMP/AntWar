@@ -6,13 +6,14 @@ TagManager:
   tags:
   - ant1
   - ant2
-  - ant3
   - ant4
+  - ant3
+  - pt
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - wall
   - Water
   - UI
   - 

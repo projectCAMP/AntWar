@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class objectgeneration : MonoBehaviour
 {
-    //[SerializeField] List<GameObject> ObjectList;
     [SerializeField] List<GameObject> generationpositionList;
     [SerializeField] int ObjectLimit = 5;
     int generationpositionnumber = 0;
@@ -28,7 +27,9 @@ public class objectgeneration : MonoBehaviour
 
     public void generation(int objectdirection)
     {
-        if (Objectvalue < ObjectLimit)
+        Debug.Log(Objectnumber);
+        Debug.Log(Pools.objs.Count);
+        if (Objectvalue < ObjectLimit && Pools.objs[Objectnumber] != null)
         {
             
             if(objectdirection == 0)
@@ -37,14 +38,17 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                for(int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                for(int i = 0; i < Pools.objs[Objectnumber].Count; i++)
                 {
-                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
-                        GameManager.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(GameManager.objs[Objectnumber][i]);
-                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        Objectvalue += 1;
                         //StartCoroutine("DelayVanish");
+
                         break;
                     }
                 }
@@ -56,14 +60,16 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                for (int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
                 {
-                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
-                        GameManager.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(GameManager.objs[Objectnumber][i]);
-                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        Objectvalue += 1;
                         //StartCoroutine("DelayVanish");
+
                         break;
                     }
                 }
@@ -75,25 +81,28 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationpositionList[generationpositionnumber].transform.position;
 
-                for (int i = 0; i < GameManager.objs[Objectnumber].Count; i++)
+                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
                 {
-                    if (!GameManager.objs[Objectnumber][i].activeSelf)
+                    if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
-                        GameManager.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(GameManager.objs[Objectnumber][i]);
-                        GameManager.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+
+                        Pools.objs[Objectnumber][i].SetActive(true);
+                        vanishes.Add(Pools.objs[Objectnumber][i]);
+                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        Objectvalue += 1;
                         //StartCoroutine("DelayVanish");
+
                         break;
                     }
                 }
             }
-            Objectvalue += 1;
+            
         }
     }
 
     /*IEnumerator DelayVanish()
     {
-        //3•b’âŽ~
+        //3ï¿½bï¿½ï¿½~
         yield return new WaitForSeconds(3);
 
         vanishes[0].SetActive(false);
