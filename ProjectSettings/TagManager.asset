@@ -9,6 +9,7 @@ TagManager:
   - ant4
   - ant3
   - pt
+  - resource
   layers:
   - Default
   - TransparentFX
