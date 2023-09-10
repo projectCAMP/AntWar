@@ -1,141 +1,79 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class UnitMove : MonoBehaviour
+public class UnitMove : Move
 {
-    public float speed = 2.0f;
-    private Vector2 targetPos;
-    public GameObject p1;
-    public GameObject target;
-    private int layerMask;
-    private RaycastHit2D[] _raycastHits = new RaycastHit2D[10];
+    protected GameObject target;
 
-    // void SetAxes(Vector2 targetPos)
-    // {
-    //     Array.Resize(ref x, x.Length + 1);
-    //     x[x.Length - 1] = targetPos.x;
-    //     Array.Resize(ref y, y.Length + 1);
-    //     y[y.Length - 1] = targetPos.y;
-    // }
-
-    // void SplineGetPos(Vector2 current)
-    // {
-    //     if (baseM.transform.position.x < current.x)
-    //     {
-    //         SetAxes(baseM.transform.position);
-    //     }
-    //     if (p1.transform.position.x < current.x)
-    //     {
-    //         SetAxes(p1.transform.position);
-    //     }
-    //     if (p2.transform.position.x < current.x)
-    //     {
-    //         SetAxes(p2.transform.position);
-    //     }
-    //     if (p3.transform.position.x < current.x)
-    //     {
-    //         SetAxes(p3.transform.position);
-    //     }
-    //     if (p4.transform.position.x < current.x)
-    //     {
-    //         SetAxes(p4.transform.position);
-    //     }
-    //     if (p5.transform.position.x < current.x)
-    //     {
-    //         SetAxes(p5.transform.position);
-    //     }
-    //     if (baseE.transform.position.x < current.x)
-    //     {
-    //         SetAxes(baseE.transform.position);
-    //     }
-    // }
-
-    // float Spline_Sc()
-    // {
-    //     c[0] = c[c.Length]
-    // }
-
-    // void Spline_S()
-    // {
-    //     a = y;
-    //     c = 
-    //     b = (n_a - a)/(n_x - x) - (n_x - x)*()/3;
-    //     d = ()/(3*(n_x - x))
-    // }
-    // void Spline()
-    // {
-    //     current = this.transform.position;
-    //     var x = new float[1] {current.x};
-    //     var y = new float[1] {current.y};
-    //     SplineGetPos(current);
-    //     var a = new float[x.Length - 1];
-    //     var b = new float[x.Length - 1];
-    //     var c = new float[x.Length - 1];
-    //     var d = new float[x.Length - 1];
-    // }
-
-    void SetDestination()
+    protected override void Start()
     {
-        float tmpDis = 0; 
-        float nearDis = 0;
-        bool forward = false;
-        GameObject targetObj = null;
-        foreach (GameObject obs in  GameObject.FindGameObjectsWithTag("pt"))
+        base.Start();
+        var antStatus = GetComponent<Ant>();
+
+        agent.speed = antStatus.Speed;
+    }
+
+	void OnEnable() {
+		status = "Stop";
+	}
+
+    void SearchTarget(GameObject thisObs,string tag = "resource")
+    {
+        foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tag))
         {
-            var posDiff = obs.transform.position - transform.position;
-            var distance = posDiff.magnitude;
-            var direction = posDiff.normalized;
-            var hitCount = Physics2D.RaycastNonAlloc(transform.position, direction, _raycastHits, distance, layerMask);
-            if (target == obs || hitCount != 0)
+            if(Vector2.Distance(obs.transform.position, thisObs.transform.position) < 3)
             {
-                continue;
+                Debug.Log(obs.gameObject.tag);
+                status = "Chase";
+                target = obs;
+                break;
             }
-            if (forward && transform.position.x > obs.transform.position.x)
-            {
-                continue;
-            }
-            if (!forward && transform.position.x < obs.transform.position.x)
-                {
-                    forward = true;
-                    nearDis = 0;
-                }
-            tmpDis = Vector2.Distance(obs.transform.position, transform.position);
-            if (nearDis == 0 || nearDis > tmpDis)
-                {
-                    nearDis = tmpDis;
-                    targetObj = obs;
-                }
-
         }
-        target = targetObj;
-        Debug.Log(target.name);
     }
 
-    void Liner(Vector2 targetPos)
+    void ChaseMove()
     {
-        Vector2 playerPos = transform.position;
-        transform.position = Vector2.MoveTowards(playerPos, targetPos, speed * Time.deltaTime);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        layerMask = 1 << LayerMask.NameToLayer("wall");
-        SetDestination();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        var posDiff = target.transform.position - transform.position;
-        var distance = posDiff.magnitude;
-        var direction = posDiff.normalized;
-        var hitCount = Physics2D.RaycastNonAlloc(transform.position, direction, _raycastHits, distance, layerMask);
-        if (target == null || Vector2.Distance(target.transform.position, transform.position) < 0.5 || hitCount != 0)
+        if (target == null || Vector2.Distance(target.transform.position, transform.position) > 2)
         {
-            SetDestination();
+            status = "Stop";
+            target = null;
+            return;
         }
-        Liner(target.transform.position);
+        if (Vector2.Distance(target.transform.position, transform.position) < 1.0)
+        {
+            status = "Action";
+            return;
+        }
+
+        agent.SetDestination(target.transform.position); 
+    }
+
+    // protected virtual void Action()
+    // {
+
+    // }
+
+    protected override void Update()
+    {
+        Debug.Log(status);
+        if (status != "Action" && status != "Chase")
+        {
+            SearchTarget(gameObject, "resource");
+        }
+        switch (status)
+        {
+            case "Stop":
+                InitialTarget();
+                break;
+            case "Action":
+                Action();
+                break;
+            case "Walk":
+                WalkMove();
+                break;
+            case "Chase":
+                ChaseMove();
+                break;
+        }
     }
 }

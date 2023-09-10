@@ -1,25 +1,29 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class Move : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    private GameObject WayPoint;
-    [SerializeField] private GameObject[] WayPoints;
-    private PtStatus[] ptS;
-    private int num_pt=-1;
-    private string target_tag = "unit";
-    private int layerMask;
+    protected NavMeshAgent agent;
+    [SerializeField] protected GameObject routes;
+    protected GameObject WayPoint;
+    protected GameObject[] WayPoints;
+    protected PtStatus[] ptS;
+    protected int num_pt=-1;
+    protected int layerMask;
+    protected string status = "Stop";
+    protected bool isMovingForward = true;
+    protected RaycastHit2D[] _raycastHits = new RaycastHit2D[10];
 
-    private string status = "Stop";
-
-    private RaycastHit2D[] _raycastHits = new RaycastHit2D[10];
-
-    void Start()
+    protected virtual void Start()
     {
+
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        WayPoints r = routes.GetComponent<WayPoints>();
+        WayPoints = r.SetRoute(0);
 
         GameObject t_WayPoint;
         ptS = new PtStatus[WayPoints.Length];
@@ -32,11 +36,7 @@ public class Move : MonoBehaviour
         layerMask = 1 << LayerMask.NameToLayer("wall");
     }
 
-	void OnEnable() {
-		status = "Stop";
-	}
-
-    void InitialTarget()
+    protected virtual void InitialTarget()
     {
         float nearDis = 0;
         float tmpDis = 0;
@@ -47,10 +47,10 @@ public class Move : MonoBehaviour
         for (int i = 0; i < WayPoints.Length; i++) 
         {
             tmpWayPoint = WayPoints[i];
-            if (tmpWayPoint == WayPoint)
-            {
-                continue;
-            }
+            // if (tmpWayPoint == WayPoint)
+            // {
+            //     continue;
+            // }
             var posDiff = tmpWayPoint.transform.position - transform.position;
             var distance = posDiff.magnitude;
             var direction = posDiff.normalized;
@@ -72,7 +72,7 @@ public class Move : MonoBehaviour
         status = "Walk";
     }
 
-    void SetWayPoints()
+    void SetForwardPoint()
     {
         GameObject pt;
         PtStatus pt_s;
@@ -94,70 +94,69 @@ public class Move : MonoBehaviour
         }
     }
 
-    void SetTarget(Collider collider)
+    void SetBackwardPoint()
     {
-        status = "Chase";
-        if (collider.CompareTag(target_tag))
+        Debug.Log("来てる？");
+        Debug.Log("もと"+num_pt);
+        GameObject pt;
+        PtStatus pt_s;
+        if (num_pt == 0)
         {
-            var posDiff = collider.transform.position - transform.position;
-            var direction = posDiff.normalized;
-            var distance = posDiff.magnitude;
-            var hitCount = Physics2D.RaycastNonAlloc(
-                                                    transform.position,
-                                                    direction,
-                                                    _raycastHits,
-                                                    distance
-                                                );
-            if (hitCount == 1)
+            return;
+        }
+        for (int i=num_pt-1; i==0; i--)
+        {
+            pt = WayPoints[i];
+            pt_s = ptS[i];
+            Debug.Log("中間"+i);
+            if (pt_s.CheckSpace(pt, 0.1f, 0.0f, layerMask))
             {
-                agent.SetDestination(collider.transform.position);
+                num_pt = i;
+                WayPoint = WayPoints[i];
+                break;
             }
         }
+        Debug.Log("あと"+num_pt);
     }
 
-    void WalkMove()
+    protected void WalkMove(bool isMovingForward=true)
     {
-        if (num_pt==-1)
+
+        // if (num_pt==-1)
+        // {
+        //     InitialTarget();
+        // }
+
+        if(WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.5)
         {
-            InitialTarget();
+            if(isMovingForward)
+            {
+                SetForwardPoint();
+            } else{
+                SetBackwardPoint();
+                Debug.Log("もどれえええええええ");
+            }
         }
-        if (WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.5)
-        {
-            SetWayPoints();
-        }
-        // Debug.Log(WayPoint);
         agent.SetDestination(WayPoint.transform.position); 
     }
 
-    void ChaseMove()
-    {
-        if (WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.5)
-        {
-            
-        }
-        agent.SetDestination(WayPoint.transform.position); 
-    }
-
-    void Action()
+    protected virtual void Action()
     {
 
     }
 
-    void Update()
+    protected virtual void Update()
     {
         switch (status)
         {
             case "Stop":
                 InitialTarget();
                 break;
-            case "Attack":
+            case "Action":
                 Action();
                 break;
             case "Walk":
-                WalkMove();
-                break;
-            case "Chase":
-                ChaseMove();
+                WalkMove(isMovingForward);
                 break;
         }
     }

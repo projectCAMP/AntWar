@@ -14,7 +14,7 @@ public class Ant : MonoBehaviour
     /// ステータス
     /// </summary>
     private AntStats _stats;
-    public AntStats Stats { get { return _stats; } private set { _stats = value; } }
+    public AntStats Stats { get { return _stats; } protected set { _stats = value; } }
 
     /// <summary>
     /// 敵ならばtrue

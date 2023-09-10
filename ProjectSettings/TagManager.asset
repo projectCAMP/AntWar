@@ -9,8 +9,12 @@ TagManager:
   - ant4
   - ant3
   - pt
+<<<<<<< HEAD
   - AnimationText1
   - AnimationText2
+=======
+  - resource
+>>>>>>> 00591e1ecb58ec376604b9f307a811a21fbbde57
   layers:
   - Default
   - TransparentFX
