@@ -9,6 +9,8 @@ TagManager:
   - ant4
   - ant3
   - pt
+  - AnimationText1
+  - AnimationText2
   layers:
   - Default
   - TransparentFX
