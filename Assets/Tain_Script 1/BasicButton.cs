@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BasicButton : MonoBehaviour
 {
+    protected string objectType;
+
+    private void Start()
+    {
+        objectType = this.gameObject.tag;
+    }
+
     public virtual void OnMouseDown()
     {
         Debug.Log("parent");

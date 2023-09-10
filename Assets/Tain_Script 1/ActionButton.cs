@@ -6,25 +6,27 @@ public class ActionButton : BasicButton
 {
     public override void OnMouseDown()
     {
-        Debug.Log("down");
         base.OnMouseDown();
+        switch (objectType)
+        {
+            case "SceneMover":
+                //SceneLoader.Instance.SceneMove()
+                break;
+        }
     }
 
     public override void OnMouseUp()
     {
-        Debug.Log("up");
         base.OnMouseUp();
     }
 
     public override void OnMouseEnter()
     {
-        Debug.Log("enter");
         base.OnMouseEnter();
     }
 
     public override void OnMouseExit()
     {
-        Debug.Log("exit");
         base.OnMouseExit();
     }
 }

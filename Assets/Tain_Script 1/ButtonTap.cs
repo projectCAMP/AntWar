@@ -31,7 +31,7 @@ public class ButtonTap : MonoBehaviour
         {
             case 0:
                 Info.GamePanel.SetActive(true);
-                CostManager.instance.CostStarter();
+                //CostManager.instance.CostStarter();
                 break;
             case 1:
                 Info.MenuPanel.SetActive(true);
@@ -99,7 +99,7 @@ public class ButtonTap : MonoBehaviour
 
     public void GenerateAction(int value)
     {
-        CostManager.instance.CostDecrease(value);
+        //CostManager.instance.CostDecrease(value);
     }
     public void ChangeScene(string sceneName)
     {
