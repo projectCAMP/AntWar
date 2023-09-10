@@ -14,6 +14,7 @@ public class Move : MonoBehaviour
     protected string status = "Stop";
     protected bool isMovingForward = true;
     protected RaycastHit2D[] _raycastHits = new RaycastHit2D[10];
+    public int route;
 
     protected virtual void Start()
     {
