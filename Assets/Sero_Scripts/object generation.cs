@@ -64,7 +64,7 @@ public class objectgeneration : MonoBehaviour
 
                     if (!Pools.objs[Objectnumber][i].activeSelf)
                     {
-                        Pools.objs[Objectnumber][i].route = objectdirection;
+                        Pools.objs[Objectnumber][i].GetComponent<Move>().route = objectdirection;
 
                         Pools.objs[Objectnumber][i].SetActive(true);
                         vanishes.Add(Pools.objs[Objectnumber][i]);
