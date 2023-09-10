@@ -11,6 +11,7 @@ public class CarryAnt : Ant
     protected override void Start()
     {
         base.Start();
+        CreateAnt();
         if (Stats.Type == AntStats.UnitType.CC)
         {
             Debug.Log("UnitType Error");
@@ -21,20 +22,20 @@ public class CarryAnt : Ant
     /// Resourceという名前のオブジェクトにぶつかるとそのオブジェクトの子オブジェクトになる
     /// </summary>
     /// <param name="collision"></param>
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Resource")
-        {
-            transform.parent = collision.transform;
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.name == "Resource")
+    //     {
+    //         transform.parent = collision.transform;
+    //     }
+    // }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Resource")
-        {
-            transform.parent = collision.transform;
-        }
-    }
+    // private void OnTriggerStay2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.name == "Resource")
+    //     {
+    //         transform.parent = collision.transform;
+    //     }
+    // }
 
 }

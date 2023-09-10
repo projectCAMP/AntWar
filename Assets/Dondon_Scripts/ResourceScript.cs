@@ -25,11 +25,13 @@ public class ResourceScript : MonoBehaviour
     private int _previousChildCount;
 
     public GameObject entityToSpawn;
+    private ResourceMove _resourceMove;
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _previousChildCount = transform.childCount;
+        _resourceMove = GetComponent<ResourceMove>();
     }
 
     void Update()
@@ -58,31 +60,32 @@ public class ResourceScript : MonoBehaviour
         //子オブジェクト全て見る
         foreach (Transform child in transform)
         {
-            var antSpeed = child.GetComponent<Ant>();
+            var antSpeed = child.GetComponent<CarryAnt>();
+            Debug.Log("力" + antSpeed.Power);
             if (antSpeed == null)
             {
                 Debug.Log("子オブジェクトにAntUnitスクリプトが含まれていません");
             }
             //力を足す
-            power += antSpeed.Power;
+            power += antSpeed.Stats.Power;
             //スピードを低いものに合わせる
             if (speed > antSpeed.Speed) speed = antSpeed.Speed;
         }
 
-        Debug.Log(power);
-
         if (power > 0f)
         {
-            _rigid.velocity = Vector2.right * speed;
+            _resourceMove.direction = "backward";
         }
         else if (power == 0f)
         {
-            _rigid.velocity = Vector2.zero;
+            speed = 0;
+            _resourceMove.direction = "idol";
         }
         else
         {
-            _rigid.velocity = Vector2.left * speed;
+            _resourceMove.direction = "forward";
         }
+        _resourceMove.speed = speed;
     }
 
     /// <summary>
