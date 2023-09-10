@@ -6,9 +6,9 @@ TagManager:
   tags:
   - ant1
   - ant2
+  - ant4
   - ant3
   - pt
-  - SceneMover
   layers:
   - Default
   - TransparentFX
