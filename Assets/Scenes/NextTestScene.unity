@@ -1907,6 +1907,7 @@ MonoBehaviour:
   GamePanel: {fileID: 5019097}
   MenuPanel: {fileID: 1214415254}
   EditPanel: {fileID: 480175943}
+  SettingPanel: {fileID: 0}
   unitDisplay:
   - {fileID: 1129086180}
   - {fileID: 1444066873}
@@ -3132,6 +3133,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214415254}
   m_CullTransparentMesh: 1
+--- !u!1 &1226504795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1226504797}
+  - component: {fileID: 1226504796}
+  m_Layer: 0
+  m_Name: WayPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1226504796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226504795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe355fd9b30fa447a89f3278c4a5303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - point_list:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - point_list:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - point_list:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+--- !u!4 &1226504797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226504795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.71, y: 1.05, z: -1.0862459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1240922794
 GameObject:
   m_ObjectHideFlags: 0
@@ -4272,13 +4330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3861940ea615fa24f994651b6233a605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationpositionList:
-  - {fileID: 794638292}
-  - {fileID: 1440056627}
-  - {fileID: 1045027869}
   ObjectLimit: 50
   Objectnumber: 0
   Objectvalue: 0
+  vanishes: []
 --- !u!114 &1937884921
 MonoBehaviour:
   m_ObjectHideFlags: 0
