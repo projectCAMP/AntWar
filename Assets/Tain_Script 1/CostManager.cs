@@ -5,8 +5,6 @@ using TMPro;
 
 public class CostManager : MonoBehaviour
 {
-    public static CostManager instance;
-
     //ゲーム上で使用するコスト
     int cost;
     //内部でコスト追加タイミングを決定するモノ
@@ -17,18 +15,8 @@ public class CostManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI costDisplay;
 
     bool gameStart;
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+
+    PartyScriptableObject partyData = new PartyScriptableObject();
     private void Update()
     {
         if (gameStart)
