@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class BasicButton : MonoBehaviour
 {
-    static protected UnitEditer editer = new UnitEditer();
+    //ƒNƒ‰ƒX‚ðŽæ“¾‚·‚é
+    protected UnitEditer editer = new UnitEditer();
+    protected Display display = new Display();
+    protected Information info = new Information();
     public virtual void OnMouseDown()
     {
         //Debug.Log("parent");

@@ -5,62 +5,44 @@ using TMPro;
 
 public class CostManager : MonoBehaviour
 {
-    public static CostManager instance;
-
     //ゲーム上で使用するコスト
     int cost;
     //内部でコスト追加タイミングを決定するモノ
-    [SerializeField] int costTiming;
-    //コストの最大を決定する
-    [SerializeField] int maxCost;
-
-    [SerializeField] TextMeshProUGUI costDisplay;
-
+    int costAddTiming;
+    //コストの最大値を決定する
+    int maxCost;
+    //コストを追加するまでを蓄積する
+    int timingCounter;
+    //コストの数え始めを判断
     bool gameStart;
-    private void Awake()
+
+    public CostManager(int costTime, int maxValue)
     {
-        if (instance == null)
-        {
-            instance = this;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        costAddTiming = costTime;
+        maxCost = maxValue;
     }
     private void Update()
     {
         if (gameStart)
         {
-            costTiming++;
-            if(costTiming > 200)
+            timingCounter++;
+            if(timingCounter > costAddTiming)
             {
                 if (cost <= maxCost)
                 {
                     cost++;
                 }
-                costTiming = 0;
-                costDisplay.text = cost + " / " + maxCost;
+                costAddTiming = 0;
             }
         }
     }
+    //コストを増やし始めるタイミングにこの関数を挿入
     public void CostStarter()
     {
         gameStart = true;
     }
-
-    public void CostDecrease(int value)
+    public void CostConsumption()
     {
-        if (cost >= value)
-        {
-            cost -= value;
-            Debug.Log("成功");
-        }
-        else
-        {
-            Debug.Log("失敗");
-        }
-        costDisplay.text = cost + " / " + maxCost;
+
     }
 }
