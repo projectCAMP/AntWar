@@ -6,9 +6,8 @@ public class ObjectHp : MonoBehaviour
 {
     GameObject Objectgeneration;
     [SerializeField] float destorylimittime;
-    [SerializeField] float destorytime;
-    [SerializeField] List<GameObject> vanishobject;
-    bool value = true;
+    float destorytime;
+    List<GameObject> vanishobject;
 
     // Start is called before the first frame update
     void Start()

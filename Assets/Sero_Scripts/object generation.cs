@@ -12,6 +12,7 @@ public class objectgeneration : MonoBehaviour
     List<GameObject> generationPositionList = new List<GameObject>();
     List<GameObject> EnemygenerationPositionList = new List<GameObject>();
     Vector3 generationposition;
+    bool Enemygenerate = false;
 
     public List<GameObject> vanishes = new List<GameObject>();
 
@@ -19,6 +20,11 @@ public class objectgeneration : MonoBehaviour
     void Start()
     {
         Waypoint = GameObject.Find("WayPoints");
+
+        if (this.gameObject.tag == "Enemygenerator")
+        {
+            Enemygenerate = true;
+        }
 
         int Length = Waypoint.GetComponent<WayPoints>().waypoints.Count;
 
@@ -47,79 +53,85 @@ public class objectgeneration : MonoBehaviour
 
     public void generation(int objectdirection)
     {
-        Debug.Log(Objectnumber);
-        Debug.Log(Pools.objs.Count);
-        if (Objectvalue < ObjectLimit && Pools.objs[Objectnumber] != null)
+        if (Enemygenerate == false)
         {
 
-            if (objectdirection == 0)
+            Debug.Log(Objectnumber);
+            Debug.Log(Pools.objs.Count);
+            if (Objectvalue < ObjectLimit && Pools.objs[Objectnumber] != null)
             {
-                generationpositionnumber = 0;
 
-                generationposition = generationPositionList[generationpositionnumber].transform.position;
-
-                for(int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                if (objectdirection == 0)
                 {
+                    generationpositionnumber = 0;
 
+                    generationposition = generationPositionList[generationpositionnumber].transform.position;
 
-                    if (!Pools.objs[Objectnumber][i].activeSelf)
-                    {
-                        Pools.objs[Objectnumber][i].GetComponent<Move>().route = objectdirection;
-
-                        Pools.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(Pools.objs[Objectnumber][i]);
-                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        Objectvalue += 1;
-                        //StartCoroutine("DelayVanish");
-
-                        break;
-                    }
-                }
-            }
-
-            if (objectdirection == 1)
-            {
-                generationpositionnumber = 1;
-
-                generationposition = generationPositionList[generationpositionnumber].transform.position;
-
-                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
-                {
-                    if (!Pools.objs[Objectnumber][i].activeSelf)
-                    {
-                        Pools.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(Pools.objs[Objectnumber][i]);
-                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        Objectvalue += 1;
-                        //StartCoroutine("DelayVanish");
-
-                        break;
-                    }
-                }
-            }
-
-            if (objectdirection == 2)
-            {
-                generationpositionnumber = 2;
-
-                generationposition = generationPositionList[generationpositionnumber].transform.position;
-
-                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
-                {
-                    if (!Pools.objs[Objectnumber][i].activeSelf)
+                    for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
                     {
 
-                        Pools.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(Pools.objs[Objectnumber][i]);
-                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
-                        Objectvalue += 1;
-                        //StartCoroutine("DelayVanish");
 
-                        break;
+                        if (!Pools.objs[Objectnumber][i].activeSelf)
+                        {
+                            Pools.objs[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                            Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                            Pools.objs[Objectnumber][i].SetActive(true);
+                            vanishes.Add(Pools.objs[Objectnumber][i]);
+                            Objectvalue += 1;
+                            //StartCoroutine("DelayVanish");
+
+                            break;
+                        }
                     }
                 }
+
+                if (objectdirection == 1)
+                {
+                    generationpositionnumber = 1;
+
+                    generationposition = generationPositionList[generationpositionnumber].transform.position;
+
+                    for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                    {
+                        if (!Pools.objs[Objectnumber][i].activeSelf)
+                        {
+                            Pools.objs[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                            Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                            Pools.objs[Objectnumber][i].SetActive(true);
+                            vanishes.Add(Pools.objs[Objectnumber][i]);
+                            Objectvalue += 1;
+                            //StartCoroutine("DelayVanish");
+
+                            break;
+                        }
+                    }
+                }
+
+                if (objectdirection == 2)
+                {
+                    generationpositionnumber = 2;
+
+                    generationposition = generationPositionList[generationpositionnumber].transform.position;
+
+                    for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                    {
+                        if (!Pools.objs[Objectnumber][i].activeSelf)
+                        {
+                            Pools.objs[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                            Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                            Pools.objs[Objectnumber][i].SetActive(true);
+                            vanishes.Add(Pools.objs[Objectnumber][i]);
+                            Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                            Objectvalue += 1;
+                            //StartCoroutine("DelayVanish");
+
+                            break;
+                        }
+                    }
+                }
+
             }
-            
+
         }
     }
 
