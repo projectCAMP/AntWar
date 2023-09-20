@@ -16,14 +16,14 @@ public class Information : MonoBehaviour
 
     public GameObject popParent;
 
-    //panelやpopの識別用enum
+    //panelやpopの識別用enum(呼び出しの名前なので自由に付けてok)
     public enum panelJudges
     {
         none,
         menuPanel,
         gamePanel,
         editPanel,
-        stagePanel
+        stagePanel,
     }
     public enum popJudges
     {
@@ -31,14 +31,14 @@ public class Information : MonoBehaviour
         settingPop
     }
 
-    //ゲームオブジェクトを検索する際の文字列用
+    //ゲームオブジェクトを検索する際の文字列用(必ず文字が被るように)
     enum panelSearchNames
     {
         None,
         Menu,
         Game,
         Edit,
-        Stage
+        Stage,
     }
 
     enum popSearchNames
