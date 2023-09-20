@@ -3,23 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - ant1
-  - ant2
-  - ant4
-  - ant3
-  - pt
-<<<<<<< HEAD
-  - AnimationText1
-  - AnimationText2
-=======
-  - resource
->>>>>>> 00591e1ecb58ec376604b9f307a811a21fbbde57
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - wall
+  - 
   - Water
   - UI
   - 

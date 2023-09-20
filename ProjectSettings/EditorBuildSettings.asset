@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/tainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/tainScene_copy_version1.unity
-    guid: f4c9686b9820102499563c0c5eb1ae8c
+    path: Assets/Scenes/PlayScene.unity
+    guid: 9b4712fc60eafa2419dca13ff8d98218
   m_configObjects: {}
