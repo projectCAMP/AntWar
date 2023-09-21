@@ -12,7 +12,6 @@ public class Display : MonoBehaviour
 
     public void PopDisplay(Information.popJudges popEnum)
     {
-        Debug.Log("##");
         AllPopVanish();
         //•\¦“à—e‚ªnone‚Ìê‡‚ÍApop‚ğÁ‚·ˆ—‚É‚È‚é
         if (popEnum != Information.popJudges.none)

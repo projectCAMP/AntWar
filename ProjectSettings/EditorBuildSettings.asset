@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/tainScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/egamainScene.unity
+    guid: e6dd0017adbaa34488c0c71eab047303
   - enabled: 1
-    path: Assets/Scenes/PlayScene.unity
-    guid: 9b4712fc60eafa2419dca13ff8d98218
+    path: Assets/Scenes/egaplayScene.unity
+    guid: 8b78aca94e1ab8d4ca9a885242b947c0
   m_configObjects: {}
