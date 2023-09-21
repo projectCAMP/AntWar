@@ -91,10 +91,10 @@ public class ActionButton : BasicButton
         switch (sceneInput)
         {
             case SceneName.tainScene:
-                SceneLoader.Instance.SceneMove("tainScene");
+                SceneLoader.Instance.SceneMove("egamainScene");
                 break;
             case SceneName.playScene:
-                SceneLoader.Instance.SceneMove("PlayScene");
+                SceneLoader.Instance.SceneMove("egaplayScene");
                 break;
         }
     }
