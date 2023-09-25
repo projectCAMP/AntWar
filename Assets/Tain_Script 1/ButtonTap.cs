@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonTap : MonoBehaviour
 {
-    [SerializeField] Information Info;
+    //[SerializeField] Information Info;
     [SerializeField] int unitCounter;
     //フェーズを変更するボタン用変数
     public int phaseValue = 99;
@@ -30,26 +30,27 @@ public class ButtonTap : MonoBehaviour
         switch (value)
         {
             case 0:
-                Info.GamePanel.SetActive(true);
+                //Info.GamePanel.SetActive(true);
+                //CostManager.instance.CostStarter();
                 break;
             case 1:
-                Info.MenuPanel.SetActive(true);
+                //Info.MenuPanel.SetActive(true);
                 if (flag)
                 {
-                    var imageStuck = Info.MenuPanel.GetComponent<Image>();
-                    imageStuck.color = new Color(imageStuck.color.r, imageStuck.color.g, imageStuck.color.b, 255);
+                    //var imageStuck = Info.MenuPanel.GetComponent<Image>();
+                    //imageStuck.color = new Color(imageStuck.color.r, imageStuck.color.g, imageStuck.color.b, 255);
                     flag = false;
                 }
                 break;
             case 2:
-                Info.EditPanel.SetActive(true);
+                //Info.EditPanel.SetActive(true);
                 break;
             //settingPanelだけ特殊
             case 3:
-                Info.MenuPanel.SetActive(true);
-                var imageStuck2 =  Info.MenuPanel.GetComponent<Image>();
-                imageStuck2.color = new Color(imageStuck2.color.r, imageStuck2.color.g, imageStuck2.color.b, 120);
-                Info.SettingPanel.SetActive(true);
+                //Info.MenuPanel.SetActive(true);
+                //var imageStuck2 =  Info.MenuPanel.GetComponent<Image>();
+                //imageStuck2.color = new Color(imageStuck2.color.r, imageStuck2.color.g, imageStuck2.color.b, 120);
+                //Info.SettingPanel.SetActive(true);
                 flag = true;
                 break;
         }
@@ -80,20 +81,25 @@ public class ButtonTap : MonoBehaviour
         unitIndex = 0;
         for(int i = 0; i < 3; i++)
         {
-            Info.unitDisplay[i].sprite = Info.unitDefault;
+            //Info.unitDisplay[i].sprite = Info.unitDefault;
         }
     }
     void AllPanelVanish()
     {
-        Info.GamePanel.SetActive(false);
-        Info.MenuPanel.SetActive(false);
-        Info.EditPanel.SetActive(false);
-        Info.SettingPanel.SetActive(false);
+        //Info.GamePanel.SetActive(false);
+        //Info.MenuPanel.SetActive(false);
+        //Info.EditPanel.SetActive(false);
+        //Info.SettingPanel.SetActive(false);
     }
 
     public void buttonpush(int value)
     {
         AntPool.AntIndex = value;
+    }
+
+    public void GenerateAction(int value)
+    {
+        //CostManager.instance.CostDecrease(value);
     }
     public void ChangeScene(string sceneName)
     {

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: de908545d76529c408f2e1dfdb64fb9b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Tanugo-R
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4d85015017071924bbf1bca7df95fa1b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

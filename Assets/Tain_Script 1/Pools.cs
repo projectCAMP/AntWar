@@ -8,8 +8,8 @@ public class Pools: MonoBehaviour
     [SerializeField] GameObject[] ant;
     //プールに用意しておくアリの数
     [SerializeField] int antAmount;
-    //読み取り専用のデータ群を取り込む
-    [SerializeField] Information Info;
+    //生成したオブジェクトの親
+    [SerializeField] GameObject objctParent;
     //unitの配列情報(外部でも使用する)
     public static List<List<GameObject>> objs = new List<List<GameObject>>();
     //既に生成したオブジェクトを持っておく
@@ -18,6 +18,9 @@ public class Pools: MonoBehaviour
     List<int> objType = new List<int>();
     private void Start()
     {
+        GameObject obj = this.gameObject;
+        DontDestroyOnLoad(obj);
+        DontDestroyOnLoad(objctParent);
         for(int i = 0; i < 3; i++)
         {
             objs.Add(new List<GameObject>());
@@ -49,6 +52,7 @@ public class Pools: MonoBehaviour
                 {
                     var defaultName = ant[createAntData].name;
                     GameObject stock = Instantiate(ant[createAntData], new Vector2(0, 0), Quaternion.identity);
+                    stock.transform.SetParent(objctParent.transform);
                     stock.name = defaultName;
                     stock.GetComponent<Ant>().CreateAnt();
                     stock.SetActive(false);
@@ -59,12 +63,6 @@ public class Pools: MonoBehaviour
                 objs.Add(sub);
                 objType.Add(Datas.units[i]);
                 numberStock.Add(createAntData);
-            }
-
-            //編成内容をエディットに反映する
-            for(int i = 0; i < numberStock.Count; i++)
-            {
-                Info.unitDisplay[i].sprite = Info.unitSprites[numberStock[i]];
             }
             Datas.units.Clear();
         }

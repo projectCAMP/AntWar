@@ -4,6 +4,8 @@ using UnityEngine;
 public class PtStatus : MonoBehaviour
 {
     private RaycastHit2D[] _raycastHits = new RaycastHit2D[10];
+    // public route_num;
+    // public num_order;
 
     public bool CheckSpace(GameObject pt, float radius, float distance, int layerMask)
     {
