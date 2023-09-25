@@ -9,6 +9,7 @@ public class AntStats
     {
         //運搬
         Carry,
+
         //妨害
         CC
     }
@@ -42,4 +43,9 @@ public class AntStats
     /// パワー
     /// </summary>
     public int Power;
+
+    /// <summary>
+    /// 画像の名前
+    /// </summary>
+    public string ImageName;
 }
