@@ -9,23 +9,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PartyScriptableObject", menuName = "PartyScriptableObject", order = 0)]
 public class PartyScriptableObject : ScriptableObject
 {
-    public GameObject[] AntList => _antList;
+    public GameObject[] AntList => antList;
 
-    private GameObject[] _antList = new GameObject[4];
-
-    private GameObject[] _prefabs;
+    private GameObject[] antList = new GameObject[4];
 
     public void SetAnt(GameObject prefab, int number)
     {
         if (number > 3) return;
-        _antList[number] = prefab;
-    }
-
-    public void ResetParty()
-    {
-        for (int i = 0; i < _antList.Length; i++)
-        {
-            _antList[i] = null;
-        }
+        antList[number] = prefab;
     }
 }
