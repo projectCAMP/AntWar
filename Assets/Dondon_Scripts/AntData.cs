@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -13,7 +12,7 @@ using UnityEngine;
 [ExcelAsset]
 public class AntData : ScriptableObject
 {
-    public List<AntStats> AllUnit; // Replace 'EntityType' to an actual type that is serializable.
+    public List<AntStats> Stats; // Replace 'EntityType' to an actual type that is serializable.
 
     /// <summary>
     /// ステータス検索用
@@ -23,7 +22,7 @@ public class AntData : ScriptableObject
     /// <returns></returns>
     public AntStats GetDataByName(string name)
     {
-        foreach (var dataObject in AllUnit)
+        foreach (var dataObject in Stats)
         {
             if (dataObject.Name == name)
             {
@@ -32,4 +31,5 @@ public class AntData : ScriptableObject
         }
         return null; // 名前が一致するデータが見つからない場合はnullを返す
     }
+
 }

@@ -12,39 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa238268487b46b418b5b78e3b5f3177, type: 3}
   m_Name: AntData
   m_EditorClassIdentifier: 
-  AllUnit:
+  Stats:
   - Name: "\u30A2\u30EA1"
     Type: 0
     Cost: 100
     Health: 200
     Speed: 1
     Power: 100
-    ImageName: a.jpg
   - Name: "\u30A2\u30EA2"
     Type: 1
     Cost: 50
     Health: 100
     Speed: 3
     Power: 50
-    ImageName: a.jpg
   - Name: "\u30A2\u30EA3"
     Type: 0
     Cost: 10
     Health: 10
     Speed: 1
     Power: 10
-    ImageName: a.jpg
   - Name: "\u30A2\u30EA4"
     Type: 1
     Cost: 20
     Health: 40
     Speed: 4
     Power: 20
-    ImageName: a.jpg
   - Name: "\u30A2\u30EA5"
     Type: 0
     Cost: 60
     Health: 80
     Speed: 6
     Power: 30
-    ImageName: a.jpg
