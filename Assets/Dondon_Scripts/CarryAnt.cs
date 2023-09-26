@@ -11,7 +11,6 @@ public class CarryAnt : Ant
     protected override void Start()
     {
         base.Start();
-        CreateAnt();
         if (Stats.Type == AntStats.UnitType.CC)
         {
             Debug.Log("UnitType Error");
@@ -37,5 +36,4 @@ public class CarryAnt : Ant
     //         transform.parent = collision.transform;
     //     }
     // }
-
 }

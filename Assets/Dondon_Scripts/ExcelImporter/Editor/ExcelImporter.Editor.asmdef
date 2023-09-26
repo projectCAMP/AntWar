@@ -1,10 +1,14 @@
 {
     "name": "ExcelImporter.Editor",
+    "rootNamespace": "",
     "references": [
         "GUID:4a82e496084bb4f3fb60aebcaa2f5361"
     ],
     "includePlatforms": [
-        "Editor"
+        "Editor",
+        "WebGL",
+        "WindowsStandalone32",
+        "WindowsStandalone64"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
