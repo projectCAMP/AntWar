@@ -28,7 +28,7 @@ public class UnitPrefabCreatorEditor : Editor
 
         if (GUILayout.Button("プレハブの作成"))
         {
-            CreatePrefab();
+            Create();
         }
     }
 
@@ -36,7 +36,7 @@ public class UnitPrefabCreatorEditor : Editor
     /// 実際の動作
     /// プレハブを作成し、AntDataのScriptableObjectにデータを流し込んでいる
     /// </summary>
-    private void CreatePrefab()
+    private void Create()
     {
         foreach (AntStats stats in _target.MasterData.StatsList)
         {

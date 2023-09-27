@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731ec95281ae3a44bb6c921859c5f028, type: 3}
   m_Name: UnitPrefabCreator
   m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: b4f8389165306a24c9789bd98c6d720d, type: 2}
-  Prefabs: []
+  MasterData: {fileID: 11400000, guid: b4f8389165306a24c9789bd98c6d720d, type: 2}
