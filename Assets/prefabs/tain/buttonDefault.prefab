@@ -137,6 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   role: 1
   actionInput: 0
-  sceneInput: 0
+  sceneInput: 2
   panelInput: 0
   popInput: 0

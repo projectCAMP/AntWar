@@ -6,6 +6,8 @@ TagManager:
   tags:
   - AnimationText2
   - AnimationText1
+  - move
+  - rotate
   layers:
   - Default
   - TransparentFX

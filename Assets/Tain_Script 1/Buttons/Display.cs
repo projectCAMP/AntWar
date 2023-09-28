@@ -24,7 +24,10 @@ public class Display : MonoBehaviour
     {
         foreach(KeyValuePair<Information.panelJudges, GameObject> vanish in Information.panelDictionary)
         {
-            vanish.Value.SetActive(false);
+            if (vanish.Value != null)
+            {
+                vanish.Value.SetActive(false);
+            }
         }
     }
 
@@ -32,7 +35,10 @@ public class Display : MonoBehaviour
     {
         foreach (KeyValuePair<Information.popJudges, GameObject> vanish in Information.popDictionary)
         {
-            vanish.Value.SetActive(false);
+            if (vanish.Value != null)
+            {
+                vanish.Value.SetActive(false);
+            }
         }
     }
 }

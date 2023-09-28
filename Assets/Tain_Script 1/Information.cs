@@ -23,12 +23,14 @@ public class Information : MonoBehaviour
         menuPanel,
         gamePanel,
         editPanel,
-        stagePanel
+        stagePanel,
+        testPanel
     }
     public enum popJudges
     {
         none,
-        settingPop
+        settingPop1,
+        settingPop2
     }
 
     //ゲームオブジェクトを検索する際の文字列用(必ず文字が被るように)
@@ -38,13 +40,16 @@ public class Information : MonoBehaviour
         Menu,
         Game,
         Edit,
-        Stage
+        Stage,
+        test
     }
 
+    //同様のオブジェクトを入れる場合は番号づけしないとDicitionaryで重複してしまう
     enum popSearchNames
     {
         None,
-        Setting
+        Setting1,
+        Setting2
     }
 
     //buttonで使用するためにdictionaryにゲームオブジェクトを登録
@@ -56,8 +61,8 @@ public class Information : MonoBehaviour
     private const string popParentName = "Pops";
 
     //ケースを分けるためにシーンの名前を入力
-    private const string menuSceneName = "egamainScene";
-    private const string gameSceneName = "egaplayScene";
+    private const string menuSceneName = "testmainScene";
+    private const string gameSceneName = "testplayScene";
 
     //シーンの数だけ手動で設定が必要
     static bool[] loads = new bool[2];
@@ -72,8 +77,8 @@ public class Information : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         //既にロード済みだったらこの後の処理を行わない
-        if (loads[0]) { return; }
-        else if (loads[1]) { return; }
+        if (loads[0] && sceneName == menuSceneName) { return; }
+        else if (loads[1] && sceneName == gameSceneName) { return; }
         //親を名前検索で取得
         GameObject panelParent = GameObject.Find(panelParentName);
         popParent = GameObject.Find(popParentName);
