@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class UnitEditer : MonoBehaviour
 {
-    //Å‘åŠi”[”(ˆê’U‘¦’l)
-    int unitMaxCount = 3;
-    //ƒŠƒXƒg‚ÅŠi”[—\’è•¨‚ğ•Û
-    static List<int> Units = new List<int>();
-    //ƒp[ƒeƒB[‚Ìƒf[ƒ^‚ğæ“¾
-    PartyScriptableObject partyData = null;
+    //æœ€å¤§æ ¼ç´æ•°(ä¸€æ—¦å³å€¤)
+    private int unitMaxCount = 3;
+
+    //ãƒªã‚¹ãƒˆã§æ ¼ç´äºˆå®šç‰©ã‚’ä¿æŒ
+    private static List<int> Units = new List<int>();
+
+    //ãƒ‘ãƒ¼ãƒ†ã‚£ãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
+    private PartyScriptableObject partyData = null;
+
     public void UnitSelect(GameObject myObj)
     {
         if (Units.Count < unitMaxCount)
@@ -20,11 +23,11 @@ public class UnitEditer : MonoBehaviour
 
     public void UnitDecision()
     {
-        if(partyData == null)
+        if (partyData == null)
         {
-            partyData = Resources.Load<PartyScriptableObject>("Data/PartyScriptableObject1");
+            partyData = Resources.Load<PartyScriptableObject>("Data/PartyScriptableObject");
         }
-        if(Units.Count < unitMaxCount) { unitMaxCount = Units.Count; }
+        if (Units.Count < unitMaxCount) { unitMaxCount = Units.Count; }
         Pools objectPooler = new Pools("Initialize");
         objectPooler.PoolClear();
         for (int i = 0; i < unitMaxCount; i++)

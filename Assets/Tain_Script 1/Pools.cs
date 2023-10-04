@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,22 +7,31 @@ public class Pools : MonoBehaviour
     //生成するアリの内容
     //[SerializeField] GameObject[] ant;
     //プールに用意しておくアリの数
-    int antAmount = 5;
+    private int antAmount = 5;
+
     //生成するオブジェクトの親name
-    string parentName = "ObjectParent";
+    private string parentName = "ObjectParent";
+
     //生成するオブジェクトの親
-    GameObject objectParent;
+    private GameObject objectParent;
+
     //生成予定の情報
-    static List<GameObject> willCreateObjs = new List<GameObject>();
+    private static List<GameObject> willCreateObjs = new List<GameObject>();
+
     //unitの配列情報(外部でも使用する)
     public static List<List<GameObject>> objs = new List<List<GameObject>>();
-    //既に生成したオブジェクトを持っておく
-    static List<List<GameObject>> createdObjs = new List<List<GameObject>>();
-    //既に生成したアリの種類を持っておく
-    List<GameObject> objType = new List<GameObject>();
 
-    static int over = 0;
-    public Pools() { }
+    //既に生成したオブジェクトを持っておく
+    private static List<List<GameObject>> createdObjs = new List<List<GameObject>>();
+
+    //既に生成したアリの種類を持っておく
+    private List<GameObject> objType = new List<GameObject>();
+
+    private static int over = 0;
+
+    public Pools()
+    { }
+
     public Pools(string initialize)
     {
         objectParent = GameObject.Find(parentName);
@@ -32,14 +41,17 @@ public class Pools : MonoBehaviour
             objs.Add(new List<GameObject>());
         }
     }
+
     public void PoolClear()
     {
         willCreateObjs.Clear();
     }
+
     public void PoolInput(GameObject input)
     {
         willCreateObjs.Add(input);
     }
+
     public void CreatePool()
     {
         //unitの配列情報をクリアする
@@ -63,11 +75,11 @@ public class Pools : MonoBehaviour
             List<GameObject> sub = new List<GameObject>();
             for (int j = 0; j < antAmount; j++)
             {
-                var defaultName = willCreateObjs[i].name;
+                //var defaultName = willCreateObjs[i].name;
                 GameObject stock = Instantiate(willCreateObjs[i], new Vector2(0, 0), Quaternion.identity);
                 stock.transform.SetParent(objectParent.transform);
-                stock.name = defaultName;
-                stock.GetComponent<Ant>().CreateAnt();
+                //stock.name = defaultName;
+                //stock.GetComponent<Ant>().CreateAnt();
                 stock.SetActive(false);
                 sub.Add(stock);
             }
