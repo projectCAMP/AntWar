@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Reflection;
+using UnityEngine.AI;
 
 /// <summary>
 /// Excelファイルから生成されたAntData内のAntStatsの値に応じてPrefabを生成するエディタ拡張
@@ -44,13 +46,15 @@ public class UnitPrefabCreatorEditor : Editor
             {
                 case AntStats.UnitType.Carry:
                     //typeof(クラス名)でコンポーネントを追加できる
-                    GameObject carryGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CircleCollider2D), typeof(CarryAnt));
+                    string unit_name = "CarryMove, Assembly-CSharp";
+                    System.Type unit_move = System.Type.GetType(unit_name);
+                    GameObject carryGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CircleCollider2D), typeof(CarryAnt), typeof(NavMeshAgent),unit_move);
                     AddImage(carryGameObject, stats);
                     CreatePrefab(carryGameObject, stats);
                     break;
 
                 case AntStats.UnitType.CC:
-                    GameObject ccGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CCAnt));
+                    GameObject ccGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CCAnt), typeof(Move));
                     AddImage(ccGameObject, stats);
                     CreatePrefab(ccGameObject, stats);
                     break;

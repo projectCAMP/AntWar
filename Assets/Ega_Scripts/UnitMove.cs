@@ -15,6 +15,16 @@ public class UnitMove : Move
 
 	void OnEnable() {
 		status = "Stop";
+        Debug.Log("mitiiii"+route);
+        WayPoints = routes.SetRoute(route);
+        GameObject t_WayPoint;
+        ptS = new PtStatus[WayPoints.Length];
+        for (int i=0; i< WayPoints.Length; i++)
+        {
+            t_WayPoint = WayPoints[i];
+            ptS[i] = t_WayPoint.GetComponent<PtStatus>();
+        }
+
 	}
 
     void SearchTarget(GameObject thisObs,string tag = "resource")
