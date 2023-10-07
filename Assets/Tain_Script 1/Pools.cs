@@ -21,6 +21,9 @@ public class Pools : MonoBehaviour
     //unitの配列情報(外部でも使用する)
     public static List<List<GameObject>> objs = new List<List<GameObject>>();
 
+    //敵のunitの配列情報
+    public static List<List<GameObject>> enemyObjs = new List<List<GameObject>>();
+
     //既に生成したオブジェクトを持っておく
     private static List<List<GameObject>> createdObjs = new List<List<GameObject>>();
 
@@ -52,10 +55,21 @@ public class Pools : MonoBehaviour
         willCreateObjs.Add(input);
     }
 
-    public void CreatePool()
+    public void CreatePool(string poolTarget)
     {
+        ref List<List<GameObject>> poolStock = ref objs;
+        switch (poolTarget)
+        {
+            case "mine":
+                poolStock = ref objs;
+                break;
+            case "enemy":
+                Debug.Log("##");
+                poolStock = ref enemyObjs;
+                break;
+        }
         //unitの配列情報をクリアする
-        objs.Clear();
+        poolStock.Clear();
         //List<GameObject> numberStock = new List<GameObject>();
         for (int i = 0; i < willCreateObjs.Count; i++)
         {
@@ -66,7 +80,7 @@ public class Pools : MonoBehaviour
             {
                 if (createAntData == objType[j])
                 {
-                    objs.Add(createdObjs[j]);
+                    poolStock.Add(createdObjs[j]);
                     //numberStock.Add(createAntData);
                     end = true;
                 }
@@ -85,7 +99,7 @@ public class Pools : MonoBehaviour
             }
             //ストック用と本番用のどちらにもオブジェクトをプールしたリストを追加する
             createdObjs.Add(sub);
-            objs.Add(sub);
+            poolStock.Add(sub);
             objType.Add(willCreateObjs[i]);
         }
     }
