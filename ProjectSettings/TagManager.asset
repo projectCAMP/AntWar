@@ -8,6 +8,10 @@ TagManager:
   - AnimationText1
   - move
   - rotate
+  - pt
+  - resource
+  - mine
+  - enemy
   layers:
   - Default
   - TransparentFX

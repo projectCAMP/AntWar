@@ -12,7 +12,7 @@ public class UnitEditer : MonoBehaviour
 
     //パーティーのデータを取得
     private PartyScriptableObject partyData = null;
-
+    
     public void UnitSelect(GameObject myObj)
     {
         if (Units.Count < unitMaxCount)
@@ -21,7 +21,7 @@ public class UnitEditer : MonoBehaviour
         }
     }
 
-    public void UnitDecision()
+    public void UnitDecision(string poolTargetName)
     {
         if (partyData == null)
         {
@@ -32,10 +32,9 @@ public class UnitEditer : MonoBehaviour
         objectPooler.PoolClear();
         for (int i = 0; i < unitMaxCount; i++)
         {
-            Debug.Log(partyData.AntList[i]);
             objectPooler.PoolInput(partyData.AntList[i]);
         }
-        objectPooler.CreatePool();
+        objectPooler.CreatePool(poolTargetName);
         Units.Clear();
     }
 
