@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2458789818699151667
 SpriteRenderer:
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
