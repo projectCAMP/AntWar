@@ -15,7 +15,14 @@ public class UnitMove : Move
 
 	void OnEnable() {
 		status = "Stop";
-        Debug.Log("mitiiii"+route);
+        Debug.Log("################################"+Enemy);
+        if (Enemy)
+        {
+            routes = GameObject.Find("EnemyWayPoints").GetComponent<WayPoints>();
+        }else
+        {
+            routes = GameObject.Find("WayPoints").GetComponent<WayPoints>();
+        }
         WayPoints = routes.SetRoute(route);
         GameObject t_WayPoint;
         ptS = new PtStatus[WayPoints.Length];

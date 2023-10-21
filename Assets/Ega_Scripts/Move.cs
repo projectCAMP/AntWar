@@ -14,7 +14,7 @@ public class Move : MonoBehaviour
     protected bool isMovingForward = true;
     protected RaycastHit2D[] _raycastHits = new RaycastHit2D[10];
     public int route = 0;
-
+    public bool Enemy = false;
     protected WayPoints routes;
 
     protected virtual void Start()
@@ -24,7 +24,13 @@ public class Move : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        routes = GameObject.Find("WayPoints").GetComponent<WayPoints>();
+        if (Enemy)
+        {
+            routes = GameObject.Find("EnemyWayPoints").GetComponent<WayPoints>();
+        }else
+        {
+            routes = GameObject.Find("WayPoints").GetComponent<WayPoints>();
+        }
 
         WayPoints = routes.SetRoute(route);
 

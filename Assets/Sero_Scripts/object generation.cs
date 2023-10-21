@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class objectgeneration : MonoBehaviour
 {
+    [SerializeField] private GameObject WayPoint;
+    [SerializeField] bool Enemy;
     [SerializeField] int ObjectLimit = 5;
     int generationpositionnumber = 0;
     public int Objectnumber;
     public int Objectvalue;
-    GameObject Waypoint;
     List<GameObject> generationPositionList = new List<GameObject>();
     List<GameObject> EnemygenerationPositionList = new List<GameObject>();
     Vector3 generationposition;
-
     public List<GameObject> vanishes = new List<GameObject>();
     
     //プールをgeneration内で敵と味方で分岐
@@ -22,9 +22,7 @@ public class objectgeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Waypoint = GameObject.Find("WayPoints");
-
-        int Length = Waypoint.GetComponent<WayPoints>().waypoints.Count;
+        int Length = WayPoint.GetComponent<WayPoints>().waypoints.Count;
 
         Debug.Log(Length);
 
@@ -32,7 +30,7 @@ public class objectgeneration : MonoBehaviour
 
         for(int i = 0; i < Length; i++)
         {
-            Route = Waypoint.GetComponent<WayPoints>().SetRoute(i);
+            Route = WayPoint.GetComponent<WayPoints>().SetRoute(i);
 
             Debug.Log(Route[0]);
 
@@ -81,6 +79,7 @@ public class objectgeneration : MonoBehaviour
                     if (!stockPooler[Objectnumber][i].activeSelf)
                     {
                         stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
 
                         stockPooler[Objectnumber][i].SetActive(true);
                         vanishes.Add(stockPooler[Objectnumber][i]);
@@ -104,6 +103,8 @@ public class objectgeneration : MonoBehaviour
                     if (!stockPooler[Objectnumber][i].activeSelf)
                     {
                         stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                        Debug.Log("oooooooooooooooooooooo"+Enemy);
+                        stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
                         stockPooler[Objectnumber][i].SetActive(true);
                         vanishes.Add(stockPooler[Objectnumber][i]);
                         stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
@@ -126,6 +127,7 @@ public class objectgeneration : MonoBehaviour
                     if (!stockPooler[Objectnumber][i].activeSelf)
                     {
                         stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
                         stockPooler[Objectnumber][i].SetActive(true);
                         vanishes.Add(stockPooler[Objectnumber][i]);
                         stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
