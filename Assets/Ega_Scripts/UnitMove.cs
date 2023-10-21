@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class UnitMove : Move
 {
@@ -14,8 +15,11 @@ public class UnitMove : Move
     }
 
 	void OnEnable() {
+        if (SceneManager.GetActiveScene().name != "testplayScene")
+        {
+            return;
+        }
 		status = "Stop";
-        Debug.Log("################################"+Enemy);
         if (Enemy)
         {
             routes = GameObject.Find("EnemyWayPoints").GetComponent<WayPoints>();
@@ -40,7 +44,6 @@ public class UnitMove : Move
         {
             if(Vector2.Distance(obs.transform.position, thisObs.transform.position) < 3)
             {
-                Debug.Log(obs.gameObject.tag);
                 status = "Chase";
                 target = obs;
                 break;
@@ -72,7 +75,6 @@ public class UnitMove : Move
 
     protected override void Update()
     {
-        Debug.Log(status);
         if (status != "Action" && status != "Chase")
         {
             SearchTarget(gameObject, "resource");

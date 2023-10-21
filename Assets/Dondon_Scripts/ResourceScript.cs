@@ -61,13 +61,13 @@ public class ResourceScript : MonoBehaviour
         foreach (Transform child in transform)
         {
             var antSpeed = child.GetComponent<CarryAnt>();
-            Debug.Log("力" + antSpeed.Power);
             if (antSpeed == null)
             {
                 Debug.Log("子オブジェクトにAntUnitスクリプトが含まれていません");
             }
             //力を足す
-            power += antSpeed.Stats.Power;
+            Debug.Log(child.name);
+            power += antSpeed.Power;
             //スピードを低いものに合わせる
             if (speed > antSpeed.Speed) speed = antSpeed.Speed;
         }
@@ -75,6 +75,7 @@ public class ResourceScript : MonoBehaviour
         if (power > 0f)
         {
             _resourceMove.direction = "backward";
+            Debug.Log("mikata");
         }
         else if (power == 0f)
         {
@@ -84,6 +85,7 @@ public class ResourceScript : MonoBehaviour
         else
         {
             _resourceMove.direction = "forward";
+            Debug.Log("teki");
         }
         _resourceMove.speed = speed;
     }

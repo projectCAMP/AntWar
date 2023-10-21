@@ -54,7 +54,7 @@ public class UnitPrefabCreatorEditor : Editor
                     break;
 
                 case AntStats.UnitType.CC:
-                    GameObject ccGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CCAnt), typeof(Move));
+                    GameObject ccGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CCAnt), typeof(Move), typeof(NavMeshAgent));
                     AddImage(ccGameObject, stats);
                     CreatePrefab(ccGameObject, stats);
                     break;
