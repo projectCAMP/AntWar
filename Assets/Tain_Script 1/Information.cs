@@ -24,11 +24,13 @@ public class Information : MonoBehaviour
         gamePanel,
         editPanel,
         stagePanel,
+        testPanel
     }
     public enum popJudges
     {
         none,
-        settingPop
+        settingPop1,
+        settingPop2
     }
 
     //ゲームオブジェクトを検索する際の文字列用(必ず文字が被るように)
@@ -39,12 +41,15 @@ public class Information : MonoBehaviour
         Game,
         Edit,
         Stage,
+        test
     }
 
+    //同様のオブジェクトを入れる場合は番号づけしないとDicitionaryで重複してしまう
     enum popSearchNames
     {
         None,
-        Setting
+        Setting1,
+        Setting2
     }
 
     //buttonで使用するためにdictionaryにゲームオブジェクトを登録
@@ -56,8 +61,11 @@ public class Information : MonoBehaviour
     private const string popParentName = "Pops";
 
     //ケースを分けるためにシーンの名前を入力
-    private const string menuSceneName = "tainScene";
-    private const string gameSceneName = "PlayScene";
+    private const string menuSceneName = "testmainScene";
+    private const string gameSceneName = "testplayScene";
+
+    //シーンの数だけ手動で設定が必要
+    static bool[] loads = new bool[2];
     private void Start()
     {
         GetInformation();
@@ -65,15 +73,18 @@ public class Information : MonoBehaviour
 
     public void GetInformation()
     {
+        //シーンごとに使用する配列が異なるので取得
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        //既にロード済みだったらこの後の処理を行わない
+        if (loads[0] && sceneName == menuSceneName) { return; }
+        else if (loads[1] && sceneName == gameSceneName) { return; }
         //親を名前検索で取得
         GameObject panelParent = GameObject.Find(panelParentName);
         popParent = GameObject.Find(popParentName);
         //子オブジェクトの数を取得
         int panelChildCount = panelParent.transform.childCount;
         int popChildCount = popParent.transform.childCount;
-        //シーンごとに使用する配列が異なるので取得
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
         //参照を行えるように配列にGameObjectを格納
         for (int i = 0; i < panelChildCount; i++)
         {
@@ -103,6 +114,8 @@ public class Information : MonoBehaviour
         }
         panelDictionaring(sceneName, panelChildCount);
         popDictionaring(sceneName, popChildCount);
+        if (sceneName == menuSceneName) { loads[0] = true; }
+        else if(sceneName == gameSceneName) { loads[1] = true; }
     }
 
     //panelのDicitionaryを作成する
@@ -129,7 +142,6 @@ public class Information : MonoBehaviour
             {
                 for (int k = 1; k < nameArray.Length; k++)
                 {
-                   // Debug.Log(nameArray[k]);
                     if (splitName == menuSceneName && menuPanels[j].name.Contains(nameArray[k].ToString()))
                     {
                         panelDictionary.Add(valueArray[k], menuPanels[j]);

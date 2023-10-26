@@ -22,7 +22,8 @@ public class ActionButton : BasicButton
         none,
         unitSelect,
         unitDecision,
-        unitReset,
+        enemyDecision,
+        unitReset
     }
 
     //シーン遷移先を入力
@@ -76,7 +77,10 @@ public class ActionButton : BasicButton
                 break;
             case ActionSplit.unitDecision:
                 //選択が終わりプールを作成する時に走る処理
-                editer.UnitDecision();
+                editer.UnitDecision("mine");
+                break;
+            case ActionSplit.enemyDecision:
+                //敵側のプールを作成する時に走る処理
                 break;
             case ActionSplit.unitReset:
                 //選択状態などを全てリセット
@@ -91,10 +95,10 @@ public class ActionButton : BasicButton
         switch (sceneInput)
         {
             case SceneName.tainScene:
-                SceneLoader.Instance.SceneMove("tainScene");
+                SceneLoader.Instance.SceneMove("testmainScene");
                 break;
             case SceneName.playScene:
-                SceneLoader.Instance.SceneMove("PlayScene");
+                SceneLoader.Instance.SceneMove("testplayScene");
                 break;
         }
     }

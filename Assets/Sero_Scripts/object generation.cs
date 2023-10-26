@@ -4,39 +4,41 @@ using UnityEngine;
 
 public class objectgeneration : MonoBehaviour
 {
+    [SerializeField] private GameObject WayPoint;
+    [SerializeField] bool Enemy;
     [SerializeField] int ObjectLimit = 5;
     int generationpositionnumber = 0;
     public int Objectnumber;
     public int Objectvalue;
-    GameObject Waypoint;
     List<GameObject> generationPositionList = new List<GameObject>();
     List<GameObject> EnemygenerationPositionList = new List<GameObject>();
     Vector3 generationposition;
-
     public List<GameObject> vanishes = new List<GameObject>();
-
+    
+    //プールをgeneration内で敵と味方で分岐
+    const string myTagName = "mine";
+    const string enemyTagName = "enemy";
+    string stockTagName;
     // Start is called before the first frame update
     void Start()
     {
-        Waypoint = GameObject.Find("WayPoints");
-
-        int Length = Waypoint.GetComponent<WayPoints>().waypoints.Count;
-
-        Debug.Log(Length);
+        int Length = WayPoint.GetComponent<WayPoints>().waypoints.Count;
 
         GameObject[] Route;
 
         for(int i = 0; i < Length; i++)
         {
-            Route = Waypoint.GetComponent<WayPoints>().SetRoute(i);
+            Route = WayPoint.GetComponent<WayPoints>().SetRoute(i);
 
-            Debug.Log(Route[0]);
 
             generationPositionList.Add(Route[0]);
 
             EnemygenerationPositionList.Add(Route[Route.Length - 1]);
 
         }
+
+        //タグでこのクラスが自分用なのか敵用なのかを判断する
+        stockTagName = gameObject.tag;
     }
 
     // Update is called once per frame
@@ -47,9 +49,18 @@ public class objectgeneration : MonoBehaviour
 
     public void generation(int objectdirection)
     {
-        Debug.Log(Objectnumber);
-        Debug.Log(Pools.objs.Count);
-        if (Objectvalue < ObjectLimit && Pools.objs[Objectnumber] != null)
+        //参照渡しを用いて自身と敵のどちらのプールを使用するかを決める
+        ref List<List<GameObject>> stockPooler = ref Pools.objs;
+        if(stockTagName == myTagName)
+        {
+            stockPooler = Pools.objs;
+        }
+        else if(stockTagName == enemyTagName)
+        {
+            stockPooler = Pools.enemyObjs;
+        }
+
+        if (Objectvalue < ObjectLimit && stockPooler[Objectnumber] != null)
         {
 
             if (objectdirection == 0)
@@ -58,17 +69,24 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationPositionList[generationpositionnumber].transform.position;
 
-                for(int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                for(int i = 0; i < stockPooler[Objectnumber].Count; i++)
                 {
 
 
-                    if (!Pools.objs[Objectnumber][i].activeSelf)
+                    if (!stockPooler[Objectnumber][i].activeSelf)
                     {
-                        Pools.objs[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
 
-                        Pools.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(Pools.objs[Objectnumber][i]);
-                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        stockPooler[Objectnumber][i].SetActive(true);
+                        if (Enemy == true)
+                        {
+                            Debug.Log("来ているかい？");
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().IsHostile = true;
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().CreateAnt(stockPooler[Objectnumber][i].GetComponent<Ant>().Stats);
+                        }
+                        vanishes.Add(stockPooler[Objectnumber][i]);
+                        stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         Objectvalue += 1;
                         //StartCoroutine("DelayVanish");
 
@@ -83,13 +101,20 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationPositionList[generationpositionnumber].transform.position;
 
-                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                for (int i = 0; i < stockPooler[Objectnumber].Count; i++)
                 {
-                    if (!Pools.objs[Objectnumber][i].activeSelf)
+                    if (!stockPooler[Objectnumber][i].activeSelf)
                     {
-                        Pools.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(Pools.objs[Objectnumber][i]);
-                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
+                        stockPooler[Objectnumber][i].SetActive(true);
+                        if (Enemy == true)
+                        {
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().IsHostile = true;
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().CreateAnt();
+                        }
+                        vanishes.Add(stockPooler[Objectnumber][i]);
+                        stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         Objectvalue += 1;
                         //StartCoroutine("DelayVanish");
 
@@ -104,14 +129,20 @@ public class objectgeneration : MonoBehaviour
 
                 generationposition = generationPositionList[generationpositionnumber].transform.position;
 
-                for (int i = 0; i < Pools.objs[Objectnumber].Count; i++)
+                for (int i = 0; i < stockPooler[Objectnumber].Count; i++)
                 {
-                    if (!Pools.objs[Objectnumber][i].activeSelf)
+                    if (!stockPooler[Objectnumber][i].activeSelf)
                     {
-
-                        Pools.objs[Objectnumber][i].SetActive(true);
-                        vanishes.Add(Pools.objs[Objectnumber][i]);
-                        Pools.objs[Objectnumber][i].GetComponent<Transform>().position = generationposition;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
+                        stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
+                        stockPooler[Objectnumber][i].SetActive(true);
+                        if (Enemy == true)
+                        {
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().IsHostile = true;
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().CreateAnt();
+                        }
+                        vanishes.Add(stockPooler[Objectnumber][i]);
+                        stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         Objectvalue += 1;
                         //StartCoroutine("DelayVanish");
 

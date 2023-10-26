@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
     protected NavMeshAgent agent;
-    [SerializeField] protected GameObject routes;
     protected GameObject WayPoint;
     protected GameObject[] WayPoints;
     protected PtStatus[] ptS;
@@ -14,7 +14,9 @@ public class Move : MonoBehaviour
     protected string status = "Stop";
     protected bool isMovingForward = true;
     protected RaycastHit2D[] _raycastHits = new RaycastHit2D[10];
-    public int route;
+    public int route = 0;
+    public bool Enemy = false;
+    protected WayPoints routes;
 
     protected virtual void Start()
     {
@@ -23,8 +25,21 @@ public class Move : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        WayPoints r = routes.GetComponent<WayPoints>();
-        WayPoints = r.SetRoute(0);
+
+        if (SceneManager.GetActiveScene().name != "testplayScene")
+        {
+            return;
+        }
+
+        if (Enemy)
+        {
+            routes = GameObject.Find("EnemyWayPoints").GetComponent<WayPoints>();
+        }else
+        {
+            routes = GameObject.Find("WayPoints").GetComponent<WayPoints>();
+        }
+
+        WayPoints = routes.SetRoute(route);
 
         GameObject t_WayPoint;
         ptS = new PtStatus[WayPoints.Length];
@@ -81,7 +96,6 @@ public class Move : MonoBehaviour
         {
             return;
         }
-        Debug.Log(num_pt);
         for (int i=num_pt+1; i<WayPoints.Length; i++)
         {
             pt = WayPoints[i];
@@ -97,8 +111,6 @@ public class Move : MonoBehaviour
 
     void SetBackwardPoint()
     {
-        Debug.Log("来てる？");
-        Debug.Log("もと"+num_pt);
         GameObject pt;
         PtStatus pt_s;
         if (num_pt == 0)
@@ -109,7 +121,6 @@ public class Move : MonoBehaviour
         {
             pt = WayPoints[i];
             pt_s = ptS[i];
-            Debug.Log("中間"+i);
             if (pt_s.CheckSpace(pt, 0.1f, 0.0f, layerMask))
             {
                 num_pt = i;
@@ -117,16 +128,10 @@ public class Move : MonoBehaviour
                 break;
             }
         }
-        Debug.Log("あと"+num_pt);
     }
 
     protected void WalkMove(bool isMovingForward=true)
     {
-
-        // if (num_pt==-1)
-        // {
-        //     InitialTarget();
-        // }
 
         if(WayPoint == null || Vector2.Distance(WayPoint.transform.position, transform.position) < 0.5)
         {
@@ -135,7 +140,6 @@ public class Move : MonoBehaviour
                 SetForwardPoint();
             } else{
                 SetBackwardPoint();
-                Debug.Log("もどれえええええええ");
             }
         }
         agent.SetDestination(WayPoint.transform.position); 
