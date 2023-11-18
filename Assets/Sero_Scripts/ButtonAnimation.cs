@@ -60,9 +60,9 @@ public class ButtonAnimation : BasicButton
 
             transform.DOKill();
             transform.localScale = defaultScale;
-            transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.25f).OnComplete(() =>
+            transform.DOScale(new Vector3(defaultScale.x * 1.1f, defaultScale.y * 1.1f, defaultScale.z * 1.1f), 0.25f).OnComplete(() =>
             {
-                transform.DOScale(new Vector3(1f, 1f, 1f), 0.25f);
+                transform.DOScale(new Vector3(defaultScale.x, defaultScale.y, defaultScale.z), 0.25f);
             });
 
         }

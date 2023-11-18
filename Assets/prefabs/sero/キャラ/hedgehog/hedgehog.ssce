@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SpriteStudioCellMap version="2.00.00">
+    <name>hedgehog</name>
+    <exportPath/>
+    <imagePath>hedgehog.png</imagePath>
+    <pixelSize>256 256</pixelSize>
+    <overrideTexSettings>0</overrideTexSettings>
+    <wrapMode>clamp</wrapMode>
+    <filterMode>linear</filterMode>
+    <imagePathAtImport/>
+    <packInfoFilePath/>
+    <texPackSettings>
+        <maxSize>4096 4096</maxSize>
+        <forcePo2>1</forcePo2>
+        <forceSquare>0</forceSquare>
+        <margin>0</margin>
+        <padding>1</padding>
+    </texPackSettings>
+    <cells>
+        <cell>
+            <name>Needle8</name>
+            <pos>100 174</pos>
+            <size>47 36</size>
+            <pivot>0.000000 0.000000</pivot>
+            <rotated>0</rotated>
+            <orgImageName></orgImageName>
+            <posStable>0</posStable>
+        </cell>
+        <cell>
+            <name>Needle7</name>
+            <pos>56 174</pos>
+            <size>42 47</size>
+            <pivot>0.000000 0.000000</pivot>
+            <rotated>0</rotated>
+            <orgImageName></orgImageName>
+            <posStable>0</posStable>
+        </cell>
+        <cell>
+            <name>Needle 6</name>
+            <pos>4 174</pos>
+            <size>49 60</size>
+            <pivot>0.000000 0.000000</pivot>
+            <rotated>0</rotated>
+            <orgImageName></orgImageName>
+            <posStable>0</posStable>
+        </cell>
+        <cell>
+            <name>Eye 3</name>
+            <pos>194 174</pos>
+            <size>16 8</size>
+            <pivot>0.000000 0.000000</pivot>
+            <rotated>0</rotated>
+            <orgImageName></orgImageName>
+            <posStable>0</posStable>
+        </cell>
+        <cell>
+            <name>Eye 2</name>
+            <pos>150 174</pos>
+            <size>24 18</size>
+            <pivot>0.000000 0.000000</pivot>
+            <rotated>0</rotated>
+            <orgImageName></orgImageName>
+            <posStable>0</posStable>
+        </cell>
+        <cell>
+            <name>Eye 1</name>
+            <pos>176 174</pos>
+            <size>15 15</size>
+            <pivot>0.000000 0.000000</pivot>
+            <rotated>0</rotated>
+            <orgImageName></orgImageName>
+            <posStable>0</posStable>
+        </cell>
+        <cell>
+            <name>Body</name>
+            <pos>4 4</pos>
+            <size>236 168</size>
+            <pivot>0.000000 0.000000</pivot>
+            <rotated>0</rotated>
+            <orgImageName></orgImageName>
+            <posStable>0</posStable>
+        </cell>
+    </cells>
+</SpriteStudioCellMap>
