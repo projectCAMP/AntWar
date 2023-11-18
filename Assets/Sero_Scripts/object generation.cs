@@ -24,15 +24,12 @@ public class objectgeneration : MonoBehaviour
     {
         int Length = WayPoint.GetComponent<WayPoints>().waypoints.Count;
 
-        Debug.Log(Length);
-
         GameObject[] Route;
 
         for(int i = 0; i < Length; i++)
         {
             Route = WayPoint.GetComponent<WayPoints>().SetRoute(i);
 
-            Debug.Log(Route[0]);
 
             generationPositionList.Add(Route[0]);
 
@@ -82,6 +79,12 @@ public class objectgeneration : MonoBehaviour
                         stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
 
                         stockPooler[Objectnumber][i].SetActive(true);
+                        if (Enemy == true)
+                        {
+                            Debug.Log("来ているかい？");
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().IsHostile = true;
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().CreateAnt(stockPooler[Objectnumber][i].GetComponent<Ant>().Stats);
+                        }
                         vanishes.Add(stockPooler[Objectnumber][i]);
                         stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         Objectvalue += 1;
@@ -103,9 +106,13 @@ public class objectgeneration : MonoBehaviour
                     if (!stockPooler[Objectnumber][i].activeSelf)
                     {
                         stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
-                        Debug.Log("oooooooooooooooooooooo"+Enemy);
                         stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
                         stockPooler[Objectnumber][i].SetActive(true);
+                        if (Enemy == true)
+                        {
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().IsHostile = true;
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().CreateAnt();
+                        }
                         vanishes.Add(stockPooler[Objectnumber][i]);
                         stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         Objectvalue += 1;
@@ -129,6 +136,11 @@ public class objectgeneration : MonoBehaviour
                         stockPooler[Objectnumber][i].GetComponent<Move>().route = objectdirection;
                         stockPooler[Objectnumber][i].GetComponent<Move>().Enemy = Enemy;
                         stockPooler[Objectnumber][i].SetActive(true);
+                        if (Enemy == true)
+                        {
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().IsHostile = true;
+                            stockPooler[Objectnumber][i].GetComponent<Ant>().CreateAnt();
+                        }
                         vanishes.Add(stockPooler[Objectnumber][i]);
                         stockPooler[Objectnumber][i].GetComponent<Transform>().position = generationposition;
                         Objectvalue += 1;

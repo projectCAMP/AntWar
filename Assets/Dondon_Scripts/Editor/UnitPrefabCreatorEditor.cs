@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Reflection;
 using UnityEngine.AI;
+using Unity.VisualScripting;
+using System.ComponentModel;
 
 /// <summary>
 /// Excelファイルから生成されたAntData内のAntStatsの値に応じてPrefabを生成するエディタ拡張
@@ -48,15 +50,17 @@ public class UnitPrefabCreatorEditor : Editor
                     //typeof(クラス名)でコンポーネントを追加できる
                     string unit_name = "CarryMove, Assembly-CSharp";
                     System.Type unit_move = System.Type.GetType(unit_name);
-                    GameObject carryGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CircleCollider2D), typeof(CarryAnt), typeof(NavMeshAgent),unit_move);
+                    GameObject carryGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CircleCollider2D), typeof(CarryAnt), typeof(NavMeshAgent), unit_move);
                     AddImage(carryGameObject, stats);
                     CreatePrefab(carryGameObject, stats);
+                    DestroyImmediate(carryGameObject);
                     break;
 
                 case AntStats.UnitType.CC:
-                    GameObject ccGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CCAnt), typeof(Move));
+                    GameObject ccGameObject = EditorUtility.CreateGameObjectWithHideFlags(stats.Name, HideFlags.HideInHierarchy, typeof(SpriteRenderer), typeof(CCAnt), typeof(Move), typeof(NavMeshAgent));
                     AddImage(ccGameObject, stats);
                     CreatePrefab(ccGameObject, stats);
+                    DestroyImmediate(ccGameObject);
                     break;
             }
         }

@@ -34,7 +34,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 35
+=======
+  m_RootOrder: 46
+>>>>>>> ccc20ad9a30b6d6f386da8cbf37a69d6742977d1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3636735009713548116
 SpriteRenderer:

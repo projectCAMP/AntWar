@@ -19,7 +19,8 @@ public class Ant : MonoBehaviour
     [SerializeField]
     private bool _isHostile;
 
-    public bool IsHostile => _isHostile;
+    public bool IsHostile
+    { get { return _isHostile; } set { _isHostile = value; } }
 
     /// <summary>
     /// 現在体力

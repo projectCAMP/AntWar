@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class Move : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
+
+        if (SceneManager.GetActiveScene().name != "testplayScene")
+        {
+            return;
+        }
+
         if (Enemy)
         {
             routes = GameObject.Find("EnemyWayPoints").GetComponent<WayPoints>();
@@ -33,8 +40,6 @@ public class Move : MonoBehaviour
         }
 
         WayPoints = routes.SetRoute(route);
-
-        Debug.Log("え？");
 
         GameObject t_WayPoint;
         ptS = new PtStatus[WayPoints.Length];
@@ -91,7 +96,6 @@ public class Move : MonoBehaviour
         {
             return;
         }
-        Debug.Log(num_pt);
         for (int i=num_pt+1; i<WayPoints.Length; i++)
         {
             pt = WayPoints[i];
