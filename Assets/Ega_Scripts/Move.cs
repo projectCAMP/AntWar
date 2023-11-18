@@ -25,12 +25,6 @@ public class Move : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-
-        if (SceneManager.GetActiveScene().name != "testplayScene")
-        {
-            return;
-        }
-
         if (Enemy)
         {
             routes = GameObject.Find("EnemyWayPoints").GetComponent<WayPoints>();

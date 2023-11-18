@@ -11,6 +11,7 @@ public class ResourceScript : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float _mass;
+
     public float Mass => _mass;
 
     /// <summary>
@@ -18,23 +19,25 @@ public class ResourceScript : MonoBehaviour
     /// </summary>
     [SerializeField]
     private int _score;
+
     public int Score => _score;
 
     private Rigidbody2D _rigid;
+
     //子オブジェクト判定用
     private int _previousChildCount;
 
-    public GameObject entityToSpawn;
+    //public GameObject entityToSpawn;
     private ResourceMove _resourceMove;
 
-    void Start()
+    private void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _previousChildCount = transform.childCount;
         _resourceMove = GetComponent<ResourceMove>();
     }
 
-    void Update()
+    private void Update()
     {
         //update内で子オブジェクトの数を監視
         if (transform.childCount != _previousChildCount)
@@ -50,7 +53,7 @@ public class ResourceScript : MonoBehaviour
     /// 子オブジェクト全てを見て、力を計算
     /// 一番遅いスピードに合わせる
     /// </summary>
-    void CaluculateSpeed()
+    private void CaluculateSpeed()
     {
         //力
         float power = 0f;

@@ -3,5 +3,6 @@
 /// </summary>
 public enum SceneNameEnum
 {
-	Dondon_sampleScene,
+	testmainScene,
+	testPlayScene,
 }
