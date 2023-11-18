@@ -32,7 +32,14 @@ public class UnitPrefabCreatorEditor : Editor
 
         if (GUILayout.Button("プレハブの作成"))
         {
+            // プロパティの更新
+            serializedObject.Update();
+            _target.MasterData.PrefabList.Clear();
+
             Create();
+
+            // 変更を保存
+            serializedObject.ApplyModifiedProperties();
         }
     }
 
@@ -74,7 +81,7 @@ public class UnitPrefabCreatorEditor : Editor
     private void CreatePrefab(GameObject gameObject, AntStats stats)
     {
         var prefab = PrefabUtility.SaveAsPrefabAsset(gameObject, PREFABPATH + gameObject.name + ".prefab");
-        stats.Prefab = prefab;
+        _target.MasterData.PrefabList.Add(prefab);
         //Prefab作成と同時にAntの初期ステータスを設定している
         prefab.GetComponent<Ant>().CreateAnt(stats);
     }

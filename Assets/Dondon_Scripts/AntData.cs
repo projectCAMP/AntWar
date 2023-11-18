@@ -13,6 +13,7 @@ using UnityEngine;
 public class AntData : ScriptableObject
 {
     public List<AntStats> StatsList; // Replace 'EntityType' to an actual type that is serializable.
+    public List<GameObject> PrefabList;
 
     /// <summary>
     /// ステータス検索用

@@ -22,6 +22,6 @@ public class AddUnitButton : MonoBehaviour
     public void ButtonPushed()
     {
         for (int i = 0; i < 3; i++)
-            _partyScriptableObject.SetAnt(_antData.StatsList[antNumber].Prefab, i);
+            _partyScriptableObject.SetAnt(_antData.PrefabList[antNumber], i);
     }
 }
