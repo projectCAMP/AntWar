@@ -563,6 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!195 &190795705
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -746,6 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!195 &193648033
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -1179,6 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!114 &223956380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2220,6 +2223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!195 &516039312
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -3546,6 +3550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!114 &816835209
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3843,6 +3848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!195 &875973748
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -4406,6 +4412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!195 &1035919549
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -5101,6 +5108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!114 &1214364940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5641,6 +5649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!114 &1282227320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6583,6 +6592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   route: 0
+  Enemy: 0
 --- !u!195 &1732780667
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -7615,6 +7625,10 @@ PrefabInstance:
     - target: {fileID: 5168752411148485813, guid: 59d2d824b1e5a1247b823040eaea6c6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328761752593492249, guid: 59d2d824b1e5a1247b823040eaea6c6c, type: 3}
+      propertyPath: sceneInput
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
