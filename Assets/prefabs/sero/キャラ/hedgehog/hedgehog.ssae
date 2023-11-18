@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SpriteStudioAnimePack version="2.00.01">
+    <settings>
+        <fps>30</fps>
+        <frameCount>11</frameCount>
+        <sortMode>prio</sortMode>
+        <canvasSize>320 320</canvasSize>
+        <pivot>0 0</pivot>
+        <bgColor>FF323232</bgColor>
+        <gridSize>32</gridSize>
+        <gridColor>FF808080</gridColor>
+        <ik_depth>3</ik_depth>
+        <startFrame>0</startFrame>
+        <endFrame>10</endFrame>
+        <outStartNum>0</outStartNum>
+    </settings>
+    <name>hedgehog</name>
+    <exportPath/>
+    <Model>
+        <partList>
+            <value>
+                <name>root</name>
+                <arrayIndex>0</arrayIndex>
+                <parentIndex>-1</parentIndex>
+                <type>null</type>
+                <boundsType>none</boundsType>
+                <inheritType>self</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+            <value>
+                <name>Body</name>
+                <arrayIndex>1</arrayIndex>
+                <parentIndex>0</parentIndex>
+                <type>normal</type>
+                <boundsType>none</boundsType>
+                <inheritType>parent</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+            <value>
+                <name>Eye 1</name>
+                <arrayIndex>2</arrayIndex>
+                <parentIndex>0</parentIndex>
+                <type>normal</type>
+                <boundsType>none</boundsType>
+                <inheritType>parent</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+            <value>
+                <name>Eye 2</name>
+                <arrayIndex>3</arrayIndex>
+                <parentIndex>0</parentIndex>
+                <type>normal</type>
+                <boundsType>none</boundsType>
+                <inheritType>parent</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+            <value>
+                <name>Eye 3</name>
+                <arrayIndex>4</arrayIndex>
+                <parentIndex>0</parentIndex>
+                <type>normal</type>
+                <boundsType>none</boundsType>
+                <inheritType>parent</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+            <value>
+                <name>Needle 6</name>
+                <arrayIndex>5</arrayIndex>
+                <parentIndex>0</parentIndex>
+                <type>normal</type>
+                <boundsType>none</boundsType>
+                <inheritType>parent</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+            <value>
+                <name>Needle7</name>
+                <arrayIndex>6</arrayIndex>
+                <parentIndex>0</parentIndex>
+                <type>normal</type>
+                <boundsType>none</boundsType>
+                <inheritType>parent</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+            <value>
+                <name>Needle8</name>
+                <arrayIndex>7</arrayIndex>
+                <parentIndex>0</parentIndex>
+                <type>normal</type>
+                <boundsType>none</boundsType>
+                <inheritType>parent</inheritType>
+                <ineheritRates>
+                    <ALPH>1</ALPH>
+                    <FLPH>0</FLPH>
+                    <FLPV>0</FLPV>
+                    <HIDE>0</HIDE>
+                    <IFLH>0</IFLH>
+                    <IFLV>0</IFLV>
+                </ineheritRates>
+                <alphaBlendType>mix</alphaBlendType>
+                <show>1</show>
+                <locked>0</locked>
+                <expandAttribute>0</expandAttribute>
+                <expandChildren>1</expandChildren>
+            </value>
+        </partList>
+    </Model>
+    <cellmapNames>
+        <value>hedgehog.ssce</value>
+    </cellmapNames>
+    <animeList>
+        <anime>
+            <name>Setup</name>
+            <overrideSettings>1</overrideSettings>
+            <settings>
+                <fps>30</fps>
+                <frameCount>1</frameCount>
+                <sortMode>prio</sortMode>
+                <canvasSize>320 320</canvasSize>
+                <pivot>0 0</pivot>
+                <bgColor>FF323232</bgColor>
+                <gridSize>32</gridSize>
+                <gridColor>FF808080</gridColor>
+                <ik_depth>3</ik_depth>
+                <startFrame>0</startFrame>
+                <endFrame>10</endFrame>
+                <outStartNum>0</outStartNum>
+            </settings>
+            <labels/>
+            <isSetup>1</isSetup>
+            <partAnimes>
+                <partAnime>
+                    <partName>root</partName>
+                    <attributes>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+                <partAnime>
+                    <partName>Body</partName>
+                    <attributes>
+                        <attribute tag="CELL">
+                            <key time="0">
+                                <value>
+                                    <mapId>0</mapId>
+                                    <name>Body</name>
+                                </value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>-4</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>-17</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="PRIO">
+                            <key time="0">
+                                <value>1</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+                <partAnime>
+                    <partName>Needle 6</partName>
+                    <attributes>
+                        <attribute tag="CELL">
+                            <key time="0">
+                                <value>
+                                    <mapId>0</mapId>
+                                    <name>Needle 6</name>
+                                </value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>-56</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>31</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="PRIO">
+                            <key time="0">
+                                <value>5</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+                <partAnime>
+                    <partName>Needle7</partName>
+                    <attributes>
+                        <attribute tag="CELL">
+                            <key time="0">
+                                <value>
+                                    <mapId>0</mapId>
+                                    <name>Needle7</name>
+                                </value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>-24</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>-8</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="PRIO">
+                            <key time="0">
+                                <value>6</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+                <partAnime>
+                    <partName>Needle8</partName>
+                    <attributes>
+                        <attribute tag="CELL">
+                            <key time="0">
+                                <value>
+                                    <mapId>0</mapId>
+                                    <name>Needle8</name>
+                                </value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>-4</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>-63</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="PRIO">
+                            <key time="0">
+                                <value>7</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+                <partAnime>
+                    <partName>Eye 2</partName>
+                    <attributes>
+                        <attribute tag="CELL">
+                            <key time="0">
+                                <value>
+                                    <mapId>0</mapId>
+                                    <name>Eye 2</name>
+                                </value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>-86</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>-61</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="PRIO">
+                            <key time="0">
+                                <value>3</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+                <partAnime>
+                    <partName>Eye 1</partName>
+                    <attributes>
+                        <attribute tag="CELL">
+                            <key time="0">
+                                <value>
+                                    <mapId>0</mapId>
+                                    <name>Eye 1</name>
+                                </value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>-85</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>-60</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="PRIO">
+                            <key time="0">
+                                <value>2</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+                <partAnime>
+                    <partName>Eye 3</partName>
+                    <attributes>
+                        <attribute tag="CELL">
+                            <key time="0">
+                                <value>
+                                    <mapId>0</mapId>
+                                    <name>Eye 3</name>
+                                </value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSX">
+                            <key time="0">
+                                <value>-84</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="POSY">
+                            <key time="0">
+                                <value>-65</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="PRIO">
+                            <key time="0">
+                                <value>4</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="ROTZ">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+            </partAnimes>
+        </anime>
+        <anime>
+            <name>anime_1</name>
+            <overrideSettings>1</overrideSettings>
+            <settings>
+                <fps>30</fps>
+                <frameCount>11</frameCount>
+                <sortMode>prio</sortMode>
+                <canvasSize>320 320</canvasSize>
+                <pivot>0 0</pivot>
+                <bgColor>FF323232</bgColor>
+                <gridSize>32</gridSize>
+                <gridColor>FF808080</gridColor>
+                <ik_depth>3</ik_depth>
+                <startFrame>0</startFrame>
+                <endFrame>10</endFrame>
+                <outStartNum>0</outStartNum>
+            </settings>
+            <labels/>
+            <isSetup>0</isSetup>
+            <partAnimes>
+                <partAnime>
+                    <partName>root</partName>
+                    <attributes>
+                        <attribute tag="HIDE">
+                            <key time="0">
+                                <value>0</value>
+                            </key>
+                        </attribute>
+                    </attributes>
+                </partAnime>
+            </partAnimes>
+        </anime>
+    </animeList>
+</SpriteStudioAnimePack>
