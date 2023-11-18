@@ -3643,53 +3643,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293128544}
   m_CullTransparentMesh: 1
---- !u!1 &1352660673
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352660675}
-  - component: {fileID: 1352660674}
-  m_Layer: 0
-  m_Name: Tapeffect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1352660674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352660673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a173e1f6156d148ad03fe842bda419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ESO: {fileID: 11400000, guid: 79b2485ffb696714584246d87e65a00b, type: 2}
-  effectObject: {fileID: 0}
-  tapEffectList: []
---- !u!4 &1352660675
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352660673}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6961195, y: -1.3429965, z: 64.14425}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444066870
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,15 +5141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f77c5c22bfcb44d9be3eb5ee17e95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ant:
-  - {fileID: 7919272700152561216, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
-  - {fileID: 7919272700152561216, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
-  - {fileID: 7919272700152561216, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
-  - {fileID: 7919272700152561216, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
-  - {fileID: 7919272700152561216, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
-  - {fileID: 7919272700152561216, guid: 41ee5d7d765f4db4e92b6276bcf8aa78, type: 3}
-  antAmount: 5
-  Info: {fileID: 0}
 --- !u!82 &2103989627
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5557,3 +5501,64 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5168752411148485813, guid: 59d2d824b1e5a1247b823040eaea6c6c, type: 3}
   m_PrefabInstance: {fileID: 2489126034218201087}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2880315305880884316
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6961195
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3429965
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 64.14425
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690295905146641846, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033569505635244185, guid: 641898b45d6a8bb4889b976315854610, type: 3}
+      propertyPath: m_Name
+      value: Tapeffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 641898b45d6a8bb4889b976315854610, type: 3}

@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class ResourceMove : Move
 {
-
     public string direction = "idol";
     public float speed = 0;
+
     protected override void Start()
     {
         base.Start();
@@ -14,12 +14,12 @@ public class ResourceMove : Move
 
     protected override void InitialTarget()
     {
-        float[] nearDis = new float[]{0f,0f};
+        float[] nearDis = new float[] { 0f, 0f };
         float tmpDis = 0;
         GameObject tmpWayPoint = null;
-        int[] nearNumPt = new int[]{-1,-1};
+        int[] nearNumPt = new int[] { -1, -1 };
 
-        for (int i = 0; i < WayPoints.Length; i++) 
+        for (int i = 0; i < WayPoints.Length; i++)
         {
             tmpWayPoint = WayPoints[i];
             var posDiff = tmpWayPoint.transform.position - transform.position;
@@ -45,13 +45,13 @@ public class ResourceMove : Move
                 nearNumPt[1] = i;
             }
         }
-        if(direction=="forward")
+        if (direction == "forward")
         {
             num_pt = Mathf.Max(nearNumPt[0], nearNumPt[1]);
             WayPoint = WayPoints[num_pt];
             isMovingForward = true;
         }
-        if(direction=="backward")
+        if (direction == "backward")
         {
             num_pt = Mathf.Min(nearNumPt[0], nearNumPt[1]);
             WayPoint = WayPoints[num_pt];
@@ -59,10 +59,11 @@ public class ResourceMove : Move
         }
         status = "Walk";
     }
+
     protected override void Update()
     {
         agent.speed = speed;
-        if(direction == "idol")
+        if (direction == "idol")
         {
             status = "Stop";
         }
@@ -70,12 +71,13 @@ public class ResourceMove : Move
         {
             case "Stop":
                 agent.isStopped = true;
-                if(direction !="idol")
+                if (direction != "idol")
                 {
                     InitialTarget();
                     agent.isStopped = false;
                 }
                 break;
+
             case "Walk":
                 WalkMove(isMovingForward);
                 break;
