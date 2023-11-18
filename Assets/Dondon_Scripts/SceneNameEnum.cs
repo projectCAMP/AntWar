@@ -4,5 +4,5 @@
 public enum SceneNameEnum
 {
 	testmainScene,
-	testPlayScene,
+	testplayScene,
 }
