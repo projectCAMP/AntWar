@@ -13,3 +13,14 @@ MonoBehaviour:
   m_Name: UnitPrefabCreator
   m_EditorClassIdentifier: 
   MasterData: {fileID: 11400000, guid: b4f8389165306a24c9789bd98c6d720d, type: 2}
+  Prefabs:
+  - {fileID: 5712223850915743639, guid: b11384199543c604fb0b5c7f614fc59a, type: 3}
+  - {fileID: 3560051547942645303, guid: 6638440f87e6d834a9190f6543487946, type: 3}
+  - {fileID: 9204229527392196380, guid: 56f6ad91e6ceced439391fbae469dfe9, type: 3}
+  - {fileID: 1243348044317218352, guid: f8a9246aef9146c4bb245f2186c6a3fc, type: 3}
+  - {fileID: 2558439750870224974, guid: caaab168b38e08641b80e53a6c1423c1, type: 3}
+  - {fileID: 5712223850915743639, guid: b11384199543c604fb0b5c7f614fc59a, type: 3}
+  - {fileID: 3560051547942645303, guid: 6638440f87e6d834a9190f6543487946, type: 3}
+  - {fileID: 9204229527392196380, guid: 56f6ad91e6ceced439391fbae469dfe9, type: 3}
+  - {fileID: 1243348044317218352, guid: f8a9246aef9146c4bb245f2186c6a3fc, type: 3}
+  - {fileID: 2558439750870224974, guid: caaab168b38e08641b80e53a6c1423c1, type: 3}
