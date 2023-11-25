@@ -64,13 +64,11 @@ public class Pools : MonoBehaviour
                 poolStock = ref objs;
                 break;
             case "enemy":
-                Debug.Log("##");
                 poolStock = ref enemyObjs;
                 break;
         }
         //unitの配列情報をクリアする
         poolStock.Clear();
-        //List<GameObject> numberStock = new List<GameObject>();
         for (int i = 0; i < willCreateObjs.Count; i++)
         {
             GameObject createAntData = willCreateObjs[i];
@@ -81,7 +79,6 @@ public class Pools : MonoBehaviour
                 if (createAntData == objType[j])
                 {
                     poolStock.Add(createdObjs[j]);
-                    //numberStock.Add(createAntData);
                     end = true;
                 }
             }
@@ -89,11 +86,8 @@ public class Pools : MonoBehaviour
             List<GameObject> sub = new List<GameObject>();
             for (int j = 0; j < antAmount; j++)
             {
-                //var defaultName = willCreateObjs[i].name;
                 GameObject stock = Instantiate(willCreateObjs[i], new Vector2(0, 0), Quaternion.identity);
                 stock.transform.SetParent(objectParent.transform);
-                //stock.name = defaultName;
-                //stock.GetComponent<Ant>().CreateAnt();
                 stock.SetActive(false);
                 sub.Add(stock);
             }
