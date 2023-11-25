@@ -20,7 +20,6 @@ MonoBehaviour:
     Speed: 1
     Power: 100
     ImageName: a.png
-    Prefab: {fileID: 0}
   - Name: "\u30A2\u30EA2"
     Type: 1
     Cost: 50
@@ -28,7 +27,6 @@ MonoBehaviour:
     Speed: 3
     Power: 50
     ImageName: a.png
-    Prefab: {fileID: 0}
   - Name: "\u30A2\u30EA3"
     Type: 0
     Cost: 10
@@ -36,7 +34,6 @@ MonoBehaviour:
     Speed: 1
     Power: 10
     ImageName: a.png
-    Prefab: {fileID: 0}
   - Name: "\u30A2\u30EA4"
     Type: 1
     Cost: 20
@@ -44,7 +41,6 @@ MonoBehaviour:
     Speed: 4
     Power: 20
     ImageName: a.png
-    Prefab: {fileID: 0}
   - Name: "\u30A2\u30EA5"
     Type: 0
     Cost: 60
@@ -52,4 +48,9 @@ MonoBehaviour:
     Speed: 6
     Power: 20
     ImageName: a.png
-    Prefab: {fileID: 0}
+  PrefabList:
+  - {fileID: 8206424031402528263, guid: b11384199543c604fb0b5c7f614fc59a, type: 3}
+  - {fileID: 6125578609713811489, guid: 6638440f87e6d834a9190f6543487946, type: 3}
+  - {fileID: 4976420606706341660, guid: 56f6ad91e6ceced439391fbae469dfe9, type: 3}
+  - {fileID: 9066077689003026469, guid: f8a9246aef9146c4bb245f2186c6a3fc, type: 3}
+  - {fileID: 3520779658441369273, guid: caaab168b38e08641b80e53a6c1423c1, type: 3}

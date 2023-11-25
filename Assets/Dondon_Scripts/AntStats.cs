@@ -52,5 +52,5 @@ public class AntStats
     /// <summary>
     /// 対象プレハブ
     /// </summary>
-    public GameObject Prefab;
+    //public GameObject Prefab;
 }
