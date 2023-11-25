@@ -144,6 +144,7 @@ public class Information : MonoBehaviour
                 {
                     if (splitName == menuSceneName && menuPanels[j].name.Contains(nameArray[k].ToString()))
                     {
+                        Debug.Log("#");
                         panelDictionary.Add(valueArray[k], menuPanels[j]);
                     }
                     else if (splitName == gameSceneName && gamePanels[j].name.Contains(nameArray[k].ToString()))
