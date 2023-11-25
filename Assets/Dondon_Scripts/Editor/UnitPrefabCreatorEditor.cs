@@ -82,6 +82,7 @@ public class UnitPrefabCreatorEditor : Editor
     {
         var prefab = PrefabUtility.SaveAsPrefabAsset(gameObject, PREFABPATH + gameObject.name + ".prefab");
         _target.MasterData.PrefabList.Add(prefab);
+        AssetDatabase.SaveAssetIfDirty(_target.MasterData);
         //Prefab作成と同時にAntの初期ステータスを設定している
         prefab.GetComponent<Ant>().CreateAnt(stats);
     }
